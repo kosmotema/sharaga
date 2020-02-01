@@ -1,0 +1,53 @@
+<header>
+    {{#if back}}
+    <a id='back' href='{{back}}'>Назад</a>
+    {{/if}}
+    <div>
+        <a href='/'>Sharaga</a>
+        <span>-</span>
+        <div id='navigation'>
+            {{#each navigation}}
+            {{#if this.href}}
+            <a href='{{this.href}}'>{{this.text}}</a>
+            {{else}}
+            <span>{{this.text}}</span>
+            {{/if}}
+            <span>/</span>
+            {{/each}}
+        </div>
+    </div>
+</header>
+
+<main>
+    {{#if rows}}
+    <div class='table-container'>
+        <table>
+            <thead>
+                <tr>
+                    <th class='indexcolicon' />
+                    <th class='indexcolname'>Название</th>
+                    <th class='indexcollastmod'>Дата модификации</th>
+                    <th class='indexcolsize'>Размер</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each rows}}
+                <tr>
+                    <td class='indexcolicon'>
+                        <img src='/icons/{{this.type}}.svg' alt='{{this.type}}' />
+                    </td>
+                    <td class='indexcolname'>
+                        <a href='{{this.link}}'>{{this.name}}</a>
+                    </td>
+                    <td class='indexcollastmod'>{{this.date}}</td>
+                    <td class='indexcolsize'>{{this.size}}</td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <h1>Упс... А здесь ничего нет <span class='spacing-wide'>¯\(°_o)/¯</span></h1>
+    {{/if}}
+</main>
