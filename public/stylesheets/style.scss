@@ -4,17 +4,11 @@
     --header-hover-color: #ccc;
     --footer-text-color: #f8f8f8;
     --footer-hover-color: #bbb;
-    --tr-back-color: #fafafa;
-    --tr-link-color: #4682b4;
-    --td-border-color: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: #ddd;
-        --tr-back-color: #222;
-        --tr-link-color: #87cefa;
-        --td-border-color: #555;
     }
 }
 
@@ -46,51 +40,6 @@ body {
     min-height: 100%;
 }
 
-header {
-    min-width: 900px;
-    // max-width: 900px;
-    flex: 0 0 auto;
-    text-align: center;
-    margin: 1.25rem 0;
-    font-size: 1.5rem;
-    color: var(--header-text-color);
-
-    a {
-        color: var(--header-text-color);
-
-        &:hover {
-            color: var(--header-hover-color);
-        }
-    }
-
-    &,
-    > div {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        align-self: center;
-    }
-
-    > div {
-        margin: 0 auto;
-        justify-content: center;
-
-        a,
-        span {
-            display: block;
-            margin: 0 2px;
-        }
-
-        > #navigation {
-            display: inline-flex;
-        }
-    }
-
-    > a#back {
-        margin-left: 15px;
-    }
-}
-
 footer {
     flex: 0 0 auto;
     text-align: center;
@@ -106,7 +55,8 @@ footer {
     }
 }
 
-main {
+main, .container {
+    width: 100%;
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
@@ -115,78 +65,34 @@ main {
     align-content: center;
 }
 
-.table-container {
-    flex: 1 0 auto;
-    width: 100%;
-    margin: 0 auto;
-    max-width: 900px;
+/* thanks Bootstrap :) */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 
-    > table {
-        width: 100%;
-        border-collapse: collapse;
-
-        tr {
-            width: 100%;
-            background-color: var(--tr-back-color);
-
-            a {
-                display: block;
-                color: var(--tr-link-color);
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            > th {
-                width: 100%;
-                text-align: left;
-                font-size: 1.05em;
-                padding: 5px 10px;
-            }
-
-            > th,
-            > td {
-                width: 100%;
-                border: 1px solid var(--td-border-color);
-            }
-
-            > .indexcolicon {
-                width: 35px;
-            }
-
-            > .indexcolname {
-                word-wrap: break-word;
-                max-width: calc(100vw - 205px);
-            }
-
-            > .indexcollastmod {
-                min-width: 125px;
-            }
-
-            > td {
-                padding: 4px 8px;
-
-                &.indexcolicon > img {
-                    height: 35px;
-                }
-            }
-        }
+    @media (min-width: 576px) {
+        max-width: 540px;
+    }
+    @media (min-width: 768px) {
+        max-width: 720px;
+    }
+    @media (min-width: 992px) {
+        max-width: 960px;
+    }
+    @media (min-width: 1200px) {
+        max-width: 1140px;
     }
 }
 
-.spacing-wide {
-    letter-spacing: .15rem;
-}
-
-@media only screen and (min-width: 700px) {
-    main > table > tr {
-        > .indexcollastmod {
-            min-width: 150px;
-        }
-        > .indexcolname {
-            max-width: calc(100vw - 255px);
-        }
-    }
-}
+// @media only screen and (min-width: 700px) {
+//     main > table > tr {
+//         > .indexcollastmod {
+//             min-width: 150px;
+//         }
+//         > .indexcolname {
+//             max-width: calc(100vw - 255px);
+//         }
+//     }
+// }

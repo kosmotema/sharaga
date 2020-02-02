@@ -49,13 +49,15 @@ app.use(function (_req, _res, next) {
   next(new createError.NotFound());
 });
 
-app.use(function (err: { message: any; status: any; }, req: { app: { get: (arg0: string) => string; }; }, res: { locals: { message: any; error: any; }; status: (arg0: any) => void; render: (arg0: string) => void; }, _next: any) {
+app.use(function (err: any, req: any, res: any, _next: any) { // customize types later
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  res.status(err.status || 500);
-  res.render('error');
+  const status = err.status || 500;
+
+  res.status(status);
+  res.render('error', { style: 'error', title: status });
 });
 
 export default app;

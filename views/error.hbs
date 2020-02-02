@@ -1,4 +1,10 @@
 <!-- customize errors -->
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<main>
+    <h1>{{message}}</h1>
+    <h2>{{error.status}}</h2>
+    {{#if error.stack}}
+    <input type='checkbox' id='error-info' hidden></input>
+    <label for='error-info'>Debug info</label>
+    <pre class='error-stack'>{{error.stack}}</pre>
+    {{/if}}
+</main>

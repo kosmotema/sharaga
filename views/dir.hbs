@@ -1,10 +1,9 @@
 <header>
     {{#if back}}
-    <a id='back' href='{{back}}'>Назад</a>
+    <a id='back' href='{{back}}' />
     {{/if}}
     <div>
-        <a href='/'>Sharaga</a>
-        <span>-</span>
+        <span><a href='/'>Sharaga</a>-</span>
         <div id='navigation'>
             {{#each navigation}}
             {{#if this.href}}
@@ -26,7 +25,7 @@
                 <tr>
                     <th class='indexcolicon' />
                     <th class='indexcolname'>Название</th>
-                    <th class='indexcollastmod'>Дата модификации</th>
+                    <th class='indexcollastmod'>Дата изменения</th>
                     <th class='indexcolsize'>Размер</th>
                 </tr>
             </thead>
@@ -34,7 +33,7 @@
                 {{#each rows}}
                 <tr>
                     <td class='indexcolicon'>
-                        <img src='/icons/{{this.type}}.svg' alt='{{this.type}}' />
+                        <img src='/icons/{{this.type}}.svg' alt='{{this.type}}'>
                     </td>
                     <td class='indexcolname'>
                         <a href='{{this.link}}'>{{this.name}}</a>

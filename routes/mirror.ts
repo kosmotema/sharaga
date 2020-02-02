@@ -3,6 +3,7 @@ import needle, { NeedleOptions } from 'needle';
 import { decode } from 'iconv-lite';
 import cheerio from 'cheerio';
 import createError from 'http-errors';
+import { extname } from 'path';
 
 import { typer, navigator } from './_helpers';
 
@@ -21,7 +22,7 @@ router.get('*', async function (req, res, next) {
     let path = req.path;
     let stream = needle.get("http://iipo.tu-bryansk.ru/pub" + req.path, options);
     stream.on('err', (err) => {
-        return next(createError(500, err.message));
+        return next(new createError.InternalServerError(err.message));
     });
     stream.on('redirect', (location: string) => {
         // console.log(response);
@@ -35,10 +36,10 @@ router.get('*', async function (req, res, next) {
             return next(createError(status));
         if (headers['content-type']?.startsWith('text/html')) {
             let data = '';
-            const encoding = headers['content-type']?.replace(/.*charset\s*=\s*/, '');
+            const encoding: string = headers['content-type']?.replace(/.*charset\s*=\s*/, '') ?? 'utf8';
             stream.on('data', (chunk: Buffer | string) => {
                 if (chunk instanceof Buffer)
-                    data += decode(chunk, encoding ?? 'utf8');
+                    data += decode(chunk, encoding);
                 else
                     data += chunk;
             });
@@ -50,23 +51,18 @@ router.get('*', async function (req, res, next) {
                 for (const element of $('body>table>tbody>tr').slice(3, -1).toArray()) {
                     const children = element.children;
                     const link = path + $(children[1].firstChild).attr('href');
-                    let type;
-                    if (link?.endsWith('/'))
-                        type = 'folder';
-                    else
-                        type = typer(link?.slice(link.lastIndexOf('.') + 1));
                     items.push({
-                        type: type,
+                        type: link?.endsWith('/') ? 'folder' : typer(extname(link)),
                         link: link,
                         name: $(children[1].firstChild).text(),
                         date: $(children[2]).text(),
                         size: $(children[3]).text()
-                    })
+                    });
                 }
                 const navigation: { text: string, href?: string }[] = navigator(path);
                 if (navigation)
                     delete navigation[navigation.length - 1].href;
-                res.render('dir', { rows: items, title: path.slice(1), navigation, back: navigation.length > 1 ? navigation[navigation.length - 2].href : null });
+                res.render('dir', { style: 'table', rows: items, title: path.slice(1), navigation, back: navigation.length > 1 ? navigation[navigation.length - 2].href : null });
             });
         }
         else {

@@ -1,0 +1,35 @@
+.spacing-wide {
+    letter-spacing: 0.15rem;
+}
+
+#error-info {
+    + label {
+        cursor: pointer;
+        user-select: none;
+
+        &:after {
+            margin-left: 5px;
+            content: "⯆";
+        }
+
+        + .error-stack {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            // transition: visibility 0s ease .5s, opacity .5s ease;
+        }
+    }
+    &:checked {
+        + label {
+            &:after {
+                content: "⯅";
+            }
+
+            + .error-stack {
+                visibility: visible;
+                opacity: 1;
+                // transition: visibility 0s ease 0s, opacity .5s ease;
+            }
+        }
+    }
+}

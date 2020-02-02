@@ -105,3 +105,9 @@ dist
 
 # VS Code files
 .vscode/
+
+# local files
+local/
+
+# ignore compiled styles
+public/stylesheets/*.css
