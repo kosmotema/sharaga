@@ -35,7 +35,8 @@ app.use(sassMiddleware({
   src: join(__dirname, 'public'),
   dest: join(__dirname, 'public'),
   indentedSyntax: false,
-  sourceMap: false
+  sourceMap: false,
+  outputStyle: process.env.NODE_ENV === 'development' ? 'expanded' : 'compressed'
 }));
 app.use(express.static(join(__dirname, 'public')));
 
