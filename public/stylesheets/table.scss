@@ -100,24 +100,24 @@ header {
             > td {
                 width: 100%;
                 border: 1px solid var(--td-border-color);
+
+                &.indexcolicon {
+                    width: 35px;
+                }
+
+                &.indexcolname {
+                    word-wrap: break-word;
+                    word-break: break-all;
+                }
+
+                // &.indexcollastmod {
+                //     // min-width: 8.75rem;
+                // }
+
+                // &.indexcolsize {
+                //     // min-width: 6.75rem;
+                // }
             }
-
-            > .indexcolicon {
-                width: 35px;
-            }
-
-            > .indexcolname {
-                word-wrap: break-word;
-                word-break: break-all;
-            }
-
-            // > .indexcollastmod {
-            //     // min-width: 8.75rem;
-            // }
-
-            // > .indexcolsize {
-            //     // min-width: 6.75rem;
-            // }
 
             > td {
                 padding: 4px 8px;
