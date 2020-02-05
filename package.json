@@ -1,6 +1,6 @@
 {
   "name": "sharaga",
-  "version": "0.6.2",
+  "version": "0.7.1",
   "private": true,
   "scripts": {
     "prod": "tsc && node ./bin/server.js",

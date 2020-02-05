@@ -39,6 +39,8 @@ main {
             overflow-x: hidden;
             text-overflow: ellipsis;
 
+            transition: color .25s ease-out, background-color .25s ease-out;
+
             &:hover,
             &:active {
                 color: #001c2a;

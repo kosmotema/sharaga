@@ -1,9 +1,9 @@
-﻿<header>
+<header>
     {{#if back}}
-    <a id='back' href='{{back}}' />
+    <a id='back' href='{{back}}'></a>
     {{/if}}
     <div>
-        <span><a href='/'>Sharaga<sup>β</sup></a>-</span>
+        <span>Index of </span>
         <div id='navigation'>
             {{#each navigation}}
             {{#if this.href}}
@@ -23,7 +23,7 @@
         <table>
             <thead>
                 <tr>
-                    <th class='indexcolicon' />
+                    <th class='indexcolicon'></th>
                     <th class='indexcolname'>Название</th>
                     <th class='indexcollastmod'>Дата изменения</th>
                     <th class='indexcolsize'>Размер</th>
