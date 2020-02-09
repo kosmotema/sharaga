@@ -34,7 +34,7 @@ router.get('*', async function (req, res, next) {
             const items = [];
             const path = '/local' + requested;
             const formater = new Intl.DateTimeFormat('ru', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
-            for (const element of files.filter(v => !v.name.startsWith('.'))) {
+            for (const element of files.filter(v => !v.name.startsWith('.') && v.name !== 'robots.txt')) {
                 const elementPath = localPath + element.name;
                 const itemInfo: fs.Stats = await new Promise((resolve, reject) => {
                     fs.stat(elementPath, (err, stats) => {
