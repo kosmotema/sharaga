@@ -20,9 +20,9 @@ header {
     font-size: 1.5rem;
     color: var(--header-text-color);
 
-    * {
-        overflow: hidden;
-        text-overflow: ellipsis;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
     }
 
     a {
@@ -33,31 +33,24 @@ header {
         }
     }
 
-    &,
-    > div {
+    & {
         display: flex;
-        align-content: flex-end;
-        align-items: flex-end;
+        flex-flow: row nowrap;
+        align-content: center;
+        align-items: center;
         justify-content: center;
     }
 
     > div {
-        // margin: 0 auto;
-
-        a,
-        span {
-            // display: block;
-            margin: 0 2px;
-        }
-
-        > #navigation {
-            display: inline-flex;
-            flex-direction: row;
-        }
+        overflow-x: auto;
+        white-space: nowrap;
+        text-overflow: unset;
+        display: inline;
     }
 
     > a#back {
-        width: 1.5rem;
+        display: inline-block;
+        min-width: 1.5rem;
         height: 100%;
         min-height: 1.5rem;
         margin-right: 1vw;
@@ -67,9 +60,9 @@ header {
 }
 
 .table-container {
-    flex: 1 0 auto;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto auto auto;
+    overflow-x: auto;
 
     > table {
         width: 100%;
@@ -90,9 +83,8 @@ header {
             }
 
             > th {
-                width: 100%;
                 text-align: left;
-                font-size: 1.05em;
+                font-size: 1.05rem;
                 padding: 10px 10px;
             }
 
@@ -101,22 +93,11 @@ header {
                 width: 100%;
                 border: 1px solid var(--td-border-color);
 
+                white-space: nowrap;
+
                 &.indexcolicon {
                     width: 35px;
                 }
-
-                &.indexcolname {
-                    word-wrap: break-word;
-                    word-break: break-all;
-                }
-
-                // &.indexcollastmod {
-                //     // min-width: 8.75rem;
-                // }
-
-                // &.indexcolsize {
-                //     // min-width: 6.75rem;
-                // }
             }
 
             > td {
@@ -124,6 +105,12 @@ header {
 
                 &.indexcolicon > img {
                     height: 35px;
+                }
+
+                &.indexcolname {
+                    white-space: normal;
+                    overflow-wrap: break-word;
+                    word-break: break-word;
                 }
             }
         }

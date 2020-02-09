@@ -4,16 +4,14 @@
     {{/if}}
     <div>
         <span>Index of </span>
-        <div id='navigation'>
-            {{#each navigation}}
-            {{#if this.href}}
-            <a href='{{this.href}}'>{{this.text}}</a>
-            {{else}}
-            <span>{{this.text}}</span>
-            {{/if}}
-            <span>/</span>
-            {{/each}}
-        </div>
+        {{#each navigation}}
+        {{#if this.href}}
+        <a href='{{this.href}}'>{{this.text}}</a>
+        {{else}}
+        <span>{{this.text}}</span>
+        {{/if}}
+        <span>/</span>
+        {{/each}}
     </div>
 </header>
 
