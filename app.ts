@@ -51,12 +51,13 @@ app.use(function (_req, _res, next) {
 });
 
 app.use(function (err: any, req: any, res: any, _next: any) { // customize types later
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   const status = err.status || 500;
-  const message = err?.message?.toLowerCase() || 'internal server error';
+  const message = err.message || 'Internal Server Error';
+
+  // set locals, only providing error in development
+  res.locals.message = message;
+  // res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.status = status;
 
   let type: { local?: boolean, mirror?: boolean } = {};
   switch (req.path.slice(1).slice(0, req.path.indexOf('/', 1))) {
@@ -68,8 +69,10 @@ app.use(function (err: any, req: any, res: any, _next: any) { // customize types
       break;
   }
 
+  console.log(status);
+
   // use image if you want to put an image on error page, currently it will add random .jpg image with name from 1 to 53, also change error.hbs
-  res.status(status).render('error', { type: type, image: Math.round(Math.random() * 52) + 1, style: 'error', title: message });
+  res.status(status).render('error', { type: type, image: Math.round(Math.random() * 52) + 1, style: 'error', title: message.toLowerCase() });
 });
 
 export default app;
