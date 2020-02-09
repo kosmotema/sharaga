@@ -1,35 +1,31 @@
-.spacing-wide {
-    letter-spacing: 0.15rem;
+main {
+    > h1 {
+        font-size: 15vh;
+    }
+
+    > h2 {
+        font-size: 5vh;
+    }
+
+    > img {
+        max-width: 100%;
+        max-height: calc(100vh - 27.5rem); /* use dynamic height!!! */
+    }
+
+    > details {
+        margin-top: 1.5rem;
+    }
+
+    > details[open] > summary + pre {
+        animation: appear 0.35s ease-in-out;
+    }
 }
 
-#error-info {
-    + label {
-        cursor: pointer;
-        user-select: none;
-
-        &:after {
-            margin-left: 5px;
-            content: "⯆";
-        }
-
-        + .error-stack {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            // transition: visibility 0s ease .5s, opacity .5s ease;
-        }
+@keyframes appear {
+    from {
+        opacity: 0;
     }
-    &:checked {
-        + label {
-            &:after {
-                content: "⯅";
-            }
-
-            + .error-stack {
-                visibility: visible;
-                opacity: 1;
-                // transition: visibility 0s ease 0s, opacity .5s ease;
-            }
-        }
+    to {
+        opacity: 1;
     }
 }

@@ -3,11 +3,9 @@
         <img alt='logo' id='logo'>
         <a href='/' id='title'>Sharaga<sup>β</sup></a>
         <div class='container'>
-            <a href='/' class='active'>Active link</a>
+            <a href='/mirror' {{#if type.mirror}} class='active' {{/if}}>Mirror</a>
             <hr>
-            <a href='/mirror'>Mirror</a>
-            <hr>
-            <a href='/local'>Local</a>
+            <a href='/local' {{#if type.local}} class='active' {{/if}}>Local</a>
         </div>
     </div>
 </nav>

@@ -111,3 +111,9 @@ local/
 
 # ignore compiled styles
 public/stylesheets/*.css
+
+# ignore error image(s)
+public/error/
+
+# exclude compiled .js files
+*.js

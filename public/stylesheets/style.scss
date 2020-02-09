@@ -98,8 +98,6 @@ nav {
                 margin: 0.25rem 1rem 0.5rem 1rem;
                 padding: 0.25rem 0.5rem;
 
-                transition: color 0.25s ease-in-out;
-
                 &::after {
                     background-color: transparent;
                     content: "";
@@ -122,6 +120,8 @@ nav {
 
                 &:hover {
                     color: var(--header-hover-color);
+                    transition: color 0.25s ease-in-out;
+
                     &::after {
                         background-color: var(--header-hover-color);
                         height: 2px;
@@ -185,14 +185,3 @@ main,
         max-width: 1140px;
     }
 }
-
-// @media only screen and (min-width: 700px) {
-//     main > table > tr {
-//         > .indexcollastmod {
-//             min-width: 150px;
-//         }
-//         > .indexcolname {
-//             max-width: calc(100vw - 255px);
-//         }
-//     }
-// }

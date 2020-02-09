@@ -62,7 +62,7 @@ router.get('*', async function (req, res, next) {
                 const navigation: { text: string, href?: string }[] = navigator(path);
                 if (navigation)
                     delete navigation[navigation.length - 1].href;
-                res.render('dir', { style: 'table', rows: items, title: path.slice(1), navigation, back: navigation.length > 1 ? navigation[navigation.length - 2].href : null });
+                res.render('dir', { type: { mirror: true }, style: 'table', rows: items, title: path.slice(1), navigation, back: navigation.length > 1 ? navigation[navigation.length - 2].href : null });
             });
         }
         else {
