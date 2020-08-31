@@ -1,11 +1,15 @@
 <nav>
     <div class='container'>
         <img alt='logo' id='logo'>
-        <a href='/' id='title'>Sharaga<sup>β</sup></a>
-        <div class='container'>
-            <a href='/mirror' {{#if type.mirror}} class='active' {{/if}}>Mirror</a>
-            <hr>
-            <a href='/local' {{#if type.local}} class='active' {{/if}}>Local</a>
+        <a href='/' id='title'>Sharaga</a>
+        <input id='menu' type='checkbox' hidden>
+        <label for='menu'>
+        </label>
+        <div id='links'>
+            <a
+                href='https://www.tu-bryansk.ru/education/schedule/?group=%D0%9E-17-%D0%9F%D0%A0%D0%98-%D1%80%D0%BF%D1%81-%D0%91'>Расписание</a>
+            <a href='http://arm.iipo.tu-bryansk.ru'>АРМ</a>
+            <a href='http://edu.tu-bryansk.ru'>ЭИОС (edu/moodle)</a>
         </div>
     </div>
 </nav>

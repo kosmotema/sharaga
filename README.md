@@ -1,2 +1,2 @@
 # sharaga
-Sharaga is the brand new service for helping students
+Sharaga is the auth-less proxy for BSTU IIPO's file server

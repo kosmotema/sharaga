@@ -1,17 +1,17 @@
 <header>
-    {{#if back}}
-    <a id='back' href='{{back}}'></a>
+    {{#if last}}
+    <a id='back' href='..'></a>
     {{/if}}
     <div>
-        <span>Index of </span>
+        <span>Index of /</span>
+        {{#if last}}
         {{#each navigation}}
-        {{#if this.href}}
         <a href='{{this.href}}'>{{this.text}}</a>
-        {{else}}
-        <span>{{this.text}}</span>
-        {{/if}}
         <span>/</span>
         {{/each}}
+        <span>{{last}}</span>
+        <span>/</span>
+        {{/if}}
     </div>
 </header>
 
@@ -31,7 +31,7 @@
                 {{#each rows}}
                 <tr>
                     <td class='indexcolicon'>
-                        <img src='/icons/{{this.type}}.svg' alt='{{this.type}}'>
+                        <img src='/static/icons/{{this.type}}.svg' alt='{{this.type}}'>
                     </td>
                     <td class='indexcolname'>
                         <a href='{{this.link}}'>{{this.name}}</a>

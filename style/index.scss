@@ -39,7 +39,7 @@ main {
             overflow-x: hidden;
             text-overflow: ellipsis;
 
-            transition: color .25s ease-out, background-color .25s ease-out;
+            transition: color 0.25s ease-out, background-color 0.25s ease-out;
 
             &:hover,
             &:active {

@@ -4,6 +4,7 @@
     --header-hover-color: #ccc;
     --footer-text-color: #f8f8f8;
     --footer-hover-color: #bbb;
+    --nav-bg-color: rgba(40, 40, 40, 0.85);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,8 +17,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow: hidden auto;
-    text-overflow: ellipsis;
 }
 
 html,
@@ -27,7 +26,6 @@ body {
     overscroll-behavior-x: none;
     color: var(--text-color);
     font-size: 16px;
-    background: url("/images/space.webp") center/cover no-repeat, #001c2a;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
         "Open Sans", Roboto, "Noto Sans", Oxygen, Ubuntu, Cantarell,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
@@ -40,13 +38,15 @@ body {
     flex-direction: column;
     justify-content: stretch;
     min-height: 100%;
+    background: url("/static/images/space.webp") center/cover no-repeat, #001c2a;
+    background-attachment: fixed;
 }
 
 nav {
     width: 100%;
     flex: 0 0 auto;
     font-size: 1.25rem;
-    background-color: rgba(59, 59, 59, 0.5);
+    background-color: var(--nav-bg-color);
 
     a {
         color: var(--header-text-color);
@@ -56,11 +56,36 @@ nav {
     > div.container {
         flex-direction: row;
         justify-content: stretch;
+        position: relative;
+
+        > label {
+            flex: 0 0 auto;
+            display: none;
+            cursor: pointer;
+            transition: background-image 0.25s ease, transform 0.25s ease;
+            background: transparent center/contain no-repeat;
+
+            @media (max-width: 768px) {
+                margin-left: auto;
+                display: inline-block;
+            }
+        }
 
         > a {
             position: relative;
             font-size: 1.35rem;
             padding: 0.25rem 0.5rem;
+            flex: 0 0 auto;
+
+            &::before {
+                display: inline-block;
+                content: "";
+                background: url("/static/icons/education.svg") center/contain
+                    no-repeat;
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
 
             &::after {
                 background-color: var(--header-text-color);
@@ -88,10 +113,11 @@ nav {
             display: none;
         }
 
-        > div.container {
+        > #links {
             width: auto;
             flex-direction: row;
-            flex: 1 0 auto;
+            text-align: center;
+            user-select: none;
 
             > a {
                 position: relative;
@@ -113,11 +139,6 @@ nav {
                         height 0.35s ease-in-out;
                 }
 
-                &.active::after {
-                    background-color: var(--header-text-color);
-                    height: 2px;
-                }
-
                 &:hover {
                     color: var(--header-hover-color);
                     transition: color 0.25s ease-in-out;
@@ -134,6 +155,44 @@ nav {
                 height: 0;
                 border: 2px solid #eee;
                 border-radius: 2px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #links {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex: 1 0 auto;
+                transition: opacity 0.25s linear, visibility 0s linear 0.25s;
+                // background-color: #1e2c32;
+                background-color: var(--nav-bg-color);
+
+                @media (max-width: 576px) {
+                    flex-direction: column;
+                }
+            }
+
+            > input[type="checkbox"] + label {
+                width: 20px;
+                height: 20px;
+                background-image: url("/static/icons/menu.svg");
+            }
+
+            > input[type="checkbox"]:checked + label {
+                transform: rotate(180deg);
+                width: 16px;
+                height: 16px;
+                background-image: url("/static/icons/cross.svg");
+            }
+
+            > input[type="checkbox"]:checked ~ #links {
+                visibility: visible;
+                transition: opacity 0.25s linear;
+                opacity: 1;
             }
         }
     }
@@ -155,7 +214,8 @@ footer {
 }
 
 main,
-.container {
+.container,
+#links {
     width: 100%;
     display: flex;
     flex: 1 0 auto;
