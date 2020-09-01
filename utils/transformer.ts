@@ -10,10 +10,12 @@ export default function (data: string, url: string): any {
     for (const element of $('body>table>tbody>tr').slice(3, -1).toArray()) {
         const row = element.children;
         const link = $(row[1].firstChild).attr('href') ?? '';
+        const isFolder = link[link.length - 1] === '/';
+        const name = $(row[1].firstChild).text();
         items.push({
-            type: link.endsWith('/') ? 'folder' : typer(extname(link)),
+            type: isFolder ? 'folder' : typer(extname(link)),
             link: link,
-            name: $(row[1].firstChild).text(),
+            name: isFolder ? name.slice(0, -1) : name,
             date: $(row[2]).text(),
             size: $(row[3]).text()
         });

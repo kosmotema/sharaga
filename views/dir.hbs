@@ -21,23 +21,23 @@
         <table>
             <thead>
                 <tr>
-                    <th class='indexcolicon'></th>
-                    <th class='indexcolname'>Название</th>
-                    <th class='indexcollastmod'>Дата изменения</th>
-                    <th class='indexcolsize'>Размер</th>
+                    <th class='icon'></th>
+                    <th class='name'>Название</th>
+                    <th class='lastmod'>Дата изменения</th>
+                    <th class='size'>Размер</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each rows}}
                 <tr>
-                    <td class='indexcolicon'>
+                    <td class='icon'>
                         <img src='/static/icons/{{this.type}}.svg' alt='{{this.type}}'>
                     </td>
-                    <td class='indexcolname'>
+                    <td class='name'>
                         <a href='{{this.link}}'>{{this.name}}</a>
                     </td>
-                    <td class='indexcollastmod'>{{this.date}}</td>
-                    <td class='indexcolsize'>{{this.size}}</td>
+                    <td class='lastmod'>{{this.date}}</td>
+                    <td class='size'>{{this.size}}</td>
                 </tr>
                 {{/each}}
 

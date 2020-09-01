@@ -26,10 +26,10 @@ body {
     overscroll-behavior-x: none;
     color: var(--text-color);
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-        "Open Sans", Roboto, "Noto Sans", Oxygen, Ubuntu, Cantarell,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
+        'Open Sans', Roboto, 'Noto Sans', Oxygen, Ubuntu, Cantarell,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji', sans-serif;
     line-height: 1.5;
 }
 
@@ -38,7 +38,7 @@ body {
     flex-direction: column;
     justify-content: stretch;
     min-height: 100%;
-    background: url("/static/images/space.webp") center/cover no-repeat, #001c2a;
+    background: url('/static/images/space.webp') center/cover no-repeat, #001c2a;
     background-attachment: fixed;
 }
 
@@ -64,6 +64,11 @@ nav {
             cursor: pointer;
             transition: background-image 0.25s ease, transform 0.25s ease;
             background: transparent center/contain no-repeat;
+            will-change: background-image;
+
+            &:hover {
+                filter: invert(25%);
+            }
 
             @media (max-width: 768px) {
                 margin-left: auto;
@@ -79,8 +84,8 @@ nav {
 
             &::before {
                 display: inline-block;
-                content: "";
-                background: url("/static/icons/education.svg") center/contain
+                content: '';
+                background: url('/static/icons/_education.svg') center/contain
                     no-repeat;
                 width: 20px;
                 height: 20px;
@@ -89,7 +94,7 @@ nav {
 
             &::after {
                 background-color: var(--header-text-color);
-                content: "";
+                content: '';
                 display: block;
                 height: 2px;
                 width: 0%;
@@ -126,7 +131,7 @@ nav {
 
                 &::after {
                     background-color: transparent;
-                    content: "";
+                    content: '';
                     display: block;
                     height: 0;
 
@@ -168,7 +173,6 @@ nav {
                 right: 0;
                 flex: 1 0 auto;
                 transition: opacity 0.25s linear, visibility 0s linear 0.25s;
-                // background-color: #1e2c32;
                 background-color: var(--nav-bg-color);
 
                 @media (max-width: 576px) {
@@ -176,20 +180,20 @@ nav {
                 }
             }
 
-            > input[type="checkbox"] + label {
+            > input[type='checkbox'] + label {
                 width: 20px;
                 height: 20px;
-                background-image: url("/static/icons/menu.svg");
+                background-image: url('/static/icons/_menu.svg');
             }
 
-            > input[type="checkbox"]:checked + label {
+            > input[type='checkbox']:checked + label {
                 transform: rotate(180deg);
                 width: 16px;
                 height: 16px;
-                background-image: url("/static/icons/cross.svg");
+                background-image: url('/static/icons/_cross.svg');
             }
 
-            > input[type="checkbox"]:checked ~ #links {
+            > input[type='checkbox']:checked ~ #links {
                 visibility: visible;
                 transition: opacity 0.25s linear;
                 opacity: 1;

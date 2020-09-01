@@ -25,10 +25,10 @@ node_modules/
 .vscode/
 
 # ignore compiled styles
-public/static/style/
+public/style/
 
 # ignore error image(s)
-public/static/error/
+public/error/
 
 # exclude compiled .js files
 *.js
