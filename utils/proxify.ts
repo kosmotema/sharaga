@@ -55,7 +55,7 @@ export default function (server: FastifyInstance) {
                         decompress
                             .setEncoding(<BufferEncoding>process.env.PROXY_ENCODING ?? 'utf8')
                             .on('data', (chunk: string) => data += chunk)
-                            .on('end', () => reply.view('dir', { style: 'table', ...transform(data, request.url) }))
+                            .on('end', () => reply.view('dir', { style: 'table', version: process.env.npm_package_version, ...transform(data, request.url) }))
                     );
                 }
                 else

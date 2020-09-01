@@ -47,7 +47,7 @@ if (isDevelopment)
     })
 
 server.setErrorHandler(function (error, _request, reply) {
-    reply.code(error.statusCode ?? 500).view('error', { status: error.statusCode, message: error.message, image: Math.round(Math.random() * parseInt(process.env.ERR_IMG_COUNT ?? '0')), style: 'error', title: error.message.toLowerCase() });
+    reply.code(error.statusCode ?? 500).view('error', { version: process.env.npm_package_version, status: error.statusCode, message: error.message, image: Math.round(Math.random() * parseInt(process.env.ERR_IMG_COUNT ?? '0')), style: 'error', title: error.message.toLowerCase() });
 })
 
 const start = async () => {
