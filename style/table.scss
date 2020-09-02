@@ -1,14 +1,16 @@
 :root {
-    --tr-back-color: #fafafa;
-    --tr-link-color: #4682b4;
-    --td-border-color: #ccc;
+    --table-bg-color: #fafafa;
+    --table-text-color: #444;
+    --table-link-color: #4682b4;
+    --table-border-color: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --tr-back-color: #222;
-        --tr-link-color: #87cefa;
-        --td-border-color: #555;
+        --table-bg-color: #222;
+        --table-text-color: #ddd;
+        --table-link-color: #87cefa;
+        --table-border-color: #555;
     }
 }
 
@@ -62,24 +64,6 @@ header {
     }
 }
 
-::-webkit-scrollbar {
-    width: 11px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 .table-container {
     width: 100%;
     margin: 0 auto auto auto;
@@ -91,11 +75,12 @@ header {
 
         tr {
             width: 100%;
-            background-color: var(--tr-back-color);
+            background-color: var(--table-bg-color);
+            color: var(--table-text-color);
 
             a {
                 display: block;
-                color: var(--tr-link-color);
+                color: var(--table-link-color);
                 text-decoration: none;
 
                 &:hover {
@@ -107,12 +92,16 @@ header {
                 text-align: left;
                 font-size: 1.05rem;
                 padding: 10px 10px;
+
+                > a {
+                    color: var(--table-text-color);
+                }
             }
 
             > th,
             > td {
                 width: 100%;
-                border: 1px solid var(--td-border-color);
+                border: 1px solid var(--table-border-color);
 
                 white-space: nowrap;
 

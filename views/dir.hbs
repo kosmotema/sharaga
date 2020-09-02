@@ -22,9 +22,10 @@
             <thead>
                 <tr>
                     <th class='icon'></th>
-                    <th class='name'>Название</th>
-                    <th class='lastmod'>Дата изменения</th>
-                    <th class='size'>Размер</th>
+                    <th class='name'>{{#if sort.name}}<a href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</th>
+                    <th class='lastmod'>{{#if sort.date}}<a href='{{sort.date}}'>Дата изменения</a>{{else}}Дата
+                        изменения{{/if}}</th>
+                    <th class='size'>{{#if sort.size}}<a href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</th>
                 </tr>
             </thead>
             <tbody>
