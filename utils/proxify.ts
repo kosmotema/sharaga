@@ -22,22 +22,25 @@ export default function (server: FastifyInstance) {
             auth: info.auth
         };
         get(info.origin + request.url, options, proxy => {
-            if (!proxy.statusCode || proxy.statusCode >= 400) {
+            const { headers, statusCode: code } = proxy;
+            delete headers['authorization'];
+            
+            if (!code || code >= 400) {
                 proxy.resume();
-                reply.send(createError(proxy.statusCode ?? 500));
+                reply.send(createError(code ?? 500));
             }
-            else if (proxy.statusCode >= 300 && proxy.statusCode < 400) {
-                if (proxy.headers['location'])
-                    reply.redirect(proxy.statusCode, proxy.headers['location'].replace(info.origin, ''));
+            else if (code >= 300 && code < 400) {
+                if (headers['location'])
+                    reply.redirect(code, headers['location'].replace(info.origin, ''));
                 else
                     reply.send(new createError.InternalServerError());
             }
             else {
-                if (proxy.headers['content-type']?.startsWith('text/html')) {
+                if (headers['content-type']?.startsWith('text/html')) {
                     let data = '';
                     let decompress = null;
 
-                    switch (proxy.headers['content-encoding']) {
+                    switch (headers['content-encoding']) {
                         case 'gzip': case 'x-gzip':
                             decompress = createGunzip();
                             break;
@@ -49,7 +52,7 @@ export default function (server: FastifyInstance) {
                             break;
                         default:
                             proxy.resume();
-                            return reply.send(new createError.InternalServerError(`Unsupported encoding: ${proxy.headers['content-encoding']}`));
+                            return reply.send(new createError.InternalServerError(`Unsupported encoding: ${headers['content-encoding']}`));
                     }
 
                     proxy.pipe(
@@ -60,7 +63,7 @@ export default function (server: FastifyInstance) {
                     );
                 }
                 else
-                    reply.code(200).headers(proxy.headers).send(proxy);
+                    reply.code(200).headers(headers).send(proxy);
             }
         }).on('error', e => reply.send(new createError.InternalServerError(e.message)));
     });
