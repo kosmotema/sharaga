@@ -1,5 +1,5 @@
 export default function (extension: string) {
-    switch (extension.slice(1).toLowerCase()) {
+    switch (extension.toLowerCase()) {
         case 'zip': case '7z': case 'bz2': case 'cab': case 'gz': case 'tar': case 'rar':
             return 'archive';
         case 'doc': case 'docx': case 'docm': case 'dot': case 'dotx': case 'dotm': case 'log': case 'msg': case 'odt': case 'pages': case 'rtf': case 'tex': case 'wpd': case 'wps':

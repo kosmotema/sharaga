@@ -1,10 +1,13 @@
+export type LinkPart = { text: string, href: string };
+export type ParseResult = { items: LinkPart[], last?: string, title: string };
+
 function trim(url: string): string {
     const i = url.indexOf('?');
     return ~i ? url.slice(0, i) : url;
 }
 
-export default function (path: string): { items: { text: string, href: string }[], last?: string, title: string } {
-    const items: { text: string, href: string }[] = [];
+export default function (path: string): ParseResult {
+    const items: LinkPart[] = [];
     let title = '/', link = '/';
     for (const part of trim(path).split('/')) {
         if (part) {

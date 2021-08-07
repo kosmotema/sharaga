@@ -6,16 +6,17 @@ import { get as httpsGet } from 'https';
 import createError from 'http-errors';
 
 import transform from './transformer';
+import params from './params';
 
-const get = process.env.PROXY_PROTOCOL === 'https' ? httpsGet : httpGet;
+const get = params.protocol === 'https' ? httpsGet : httpGet;
 const info = {
-    origin: `${process.env.PROXY_PROTOCOL}://${process.env.PROXY_HOSTNAME}${process.env.PROXY_PATHNAME}`,
-    auth: `${process.env.PROXY_LOGIN}:${process.env.PROXY_PASSWORD}`
+    origin: params.url.toString(),
+    auth: params.auth
 }
 
 export default function (server: FastifyInstance) {
     return server.get('*', async function (request, reply) {
-        request.headers['host'] = process.env.PROXY_HOSTNAME;
+        request.headers['host'] = params.url.hostname;
         const options = {
             headers: request.headers,
             auth: info.auth
@@ -53,9 +54,9 @@ export default function (server: FastifyInstance) {
 
                     proxy.pipe(
                         decompress
-                            .setEncoding(<BufferEncoding>process.env.PROXY_ENCODING ?? 'utf8')
+                            .setEncoding(params.encoding as BufferEncoding ?? 'utf8')
                             .on('data', (chunk: string) => data += chunk)
-                            .on('end', () => reply.view('dir', { style: 'table', version: process.env.npm_package_version, ...transform(data, request.url) }))
+                            .on('end', () => reply.view('dir', { style: 'table', ...transform(data, request.url) }))
                     );
                 }
                 else

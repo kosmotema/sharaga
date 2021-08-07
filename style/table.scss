@@ -64,65 +64,69 @@ header {
     }
 }
 
-.table-container {
-    width: 100%;
-    margin: 0 auto auto auto;
+main {
+    justify-content: start;
     overflow-x: auto;
 
-    > table {
-        width: 100%;
-        border-collapse: collapse;
+    > h1 {
+        text-align: center;
+    }
 
-        tr {
+        > table {
             width: 100%;
-            background-color: var(--table-bg-color);
-            color: var(--table-text-color);
+            border-collapse: collapse;
 
-            a {
-                display: block;
-                color: var(--table-link-color);
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            > th {
-                text-align: left;
-                font-size: 1.05rem;
-                padding: 10px 10px;
-
-                > a {
-                    color: var(--table-text-color);
-                }
-            }
-
-            > th,
-            > td {
+            tr {
                 width: 100%;
-                border: 1px solid var(--table-border-color);
+                background-color: var(--table-bg-color);
+                color: var(--table-text-color);
 
-                white-space: nowrap;
+                a {
+                    display: block;
+                    color: var(--table-link-color);
+                    text-decoration: none;
 
-                &.icon {
-                    width: 35px;
-                }
-            }
-
-            > td {
-                padding: 4px 8px;
-
-                &.icon > img {
-                    height: 35px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
 
-                &.name {
-                    white-space: normal;
-                    overflow-wrap: break-word;
-                    word-break: break-word;
+                > th {
+                    text-align: left;
+                    font-size: 1.05rem;
+                    padding: 10px 10px;
+
+                    > a {
+                        color: var(--table-text-color);
+                    }
+                }
+
+                > th,
+                > td {
+                    width: 100%;
+                    border: 1px solid var(--table-border-color);
+
+                    white-space: nowrap;
+
+                    &.icon {
+                        width: 35px;
+                    }
+                }
+
+                > td {
+                    padding: 4px 8px;
+
+                    &.icon > img {
+                        height: 35px;
+                    }
+
+                    &.name {
+                        white-space: normal;
+                        overflow-wrap: break-word;
+                        word-break: break-word;
+                    }
                 }
             }
         }
-    }
+    // }
 }

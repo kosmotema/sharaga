@@ -1,11 +1,9 @@
-<!-- customize errors -->
 <main>
-    <div class='message'>
-        <span class='code'>{{status}}.</span> <span class='description'>{{message}}</span>
-    </div>
-    {{#if image}}
-    <div class='image' style="background-image: url('/static/error/{{image}}.jpg')"></div>
-    {{/if}}
+    <article>
+        <h1>{{status}}.</h1>
+        <h5>{{message}}</h5>
+    </article>
+
     {{#if error.stack}}
     <details>
         <summary>Debug info</summary>

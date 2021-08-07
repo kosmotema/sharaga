@@ -5,6 +5,8 @@
     --footer-text-color: #f8f8f8;
     --footer-hover-color: #bbb;
     --nav-bg-color: rgba(40, 40, 40, 0.85);
+
+    color-scheme: light dark;
 }
 
 * {
@@ -240,27 +242,5 @@ main,
     }
     @media (min-width: 1200px) {
         max-width: 1140px;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 11px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #777;
-    border-radius: 10px;
-
-    &:hover {
-        background: #555;
-    }
-
-    &:active {
-        background: #444;
     }
 }
