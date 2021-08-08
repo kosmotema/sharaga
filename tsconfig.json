@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "app.ts"
+    "app.ts",
+    "utils/"
   ],
   "exclude": [
     "node_modules",
