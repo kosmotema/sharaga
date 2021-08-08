@@ -11,19 +11,22 @@ import params from './params';
 const get = params.protocol === 'https' ? httpsGet : httpGet;
 const info = {
     origin: params.url.toString(),
-    auth: params.auth
+    auth: params.auth,
+    charset: params.encoding as BufferEncoding ?? 'utf-8'
 }
 
 export default function (server: FastifyInstance) {
     return server.get('*', async function (request, reply) {
         request.headers['host'] = params.url.hostname;
+        // request.headers['accept-encoding'] = 'gzip, deflate, br';
+        request.headers['accept-charset'] = info.charset;
         const options = {
             headers: request.headers,
             auth: info.auth
         };
         get(info.origin + request.url, options, proxy => {
             const { headers, statusCode: code } = proxy;
-            delete headers['authorization'];
+            headers['authorization'] && delete headers['authorization'];
             
             if (!code || code >= 400) {
                 proxy.resume();
@@ -57,7 +60,7 @@ export default function (server: FastifyInstance) {
 
                     proxy.pipe(
                         decompress
-                            .setEncoding(params.encoding as BufferEncoding ?? 'utf8')
+                            .setEncoding(info.charset)
                             .on('data', (chunk: string) => data += chunk)
                             .on('end', () => reply.view('dir', { style: 'table', ...transform(data, request.url) }))
                     );
