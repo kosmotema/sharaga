@@ -32,3 +32,6 @@ public/error/
 
 # exclude compiled .js files
 *.js
+
+# ignore pm2 config
+ecosystem.config.js

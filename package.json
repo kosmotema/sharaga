@@ -1,6 +1,6 @@
 {
   "name": "sharaga",
-  "version": "3.0.0-rc3",
+  "version": "3.0.0-rc4",
   "private": true,
   "scripts": {
     "sass:prod": "sass style/:public/style/ --style compressed --no-source-map",
@@ -8,7 +8,7 @@
     "sass:watch": "npm run sass:dev -- --watch",
     "svgo": "svgo -f public/icons/",
     "preprod": "tsc && npm run sass:prod",
-    "prod": "pm2 start app.js --name sharaga",
+    "prod": "pm2 start ecosystem.config.js",
     "predev": "npm run sass:dev",
     "dev": "concurrently --kill-others \"npm run sass:watch\" \"ts-node-dev --respawn --inspect --transpile-only app.ts\""
   },
