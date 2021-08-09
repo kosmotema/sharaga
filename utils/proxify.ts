@@ -13,14 +13,12 @@ import { decode, toBufferEncoding } from './decode';
 const get = params.protocol === 'https' ? httpsGet : httpGet;
 const info = {
     origin: params.url.toString(),
-    auth: params.auth,
-    charset: (params.encoding as BufferEncoding) ?? 'utf-8'
+    auth: params.auth
 };
 
 export default function (server: FastifyInstance) {
     return server.get('*', function (request, reply) {
         request.headers['host'] = params.url.hostname;
-        request.headers['accept-charset'] = info.charset;
         const options = {
             headers: request.headers,
             auth: info.auth
