@@ -1,18 +1,19 @@
 {
   "name": "sharaga",
-  "version": "3.0.0-rc9",
+  "version": "3.0.0-rc10",
   "private": true,
   "scripts": {
-    "sass:prod": "sass style/:public/style/ --style compressed --no-source-map",
-    "sass:dev": "npm run sass:prod -- --style expanded --source-map",
-    "sass:watch": "npm run sass:dev -- --watch",
-    "svgo": "svgo -f public/icons/",
-    "build": "tsc && npm run sass:prod",
-    "preprod": "npm run build",
-    "prod": "npm run start",
+    "sass:build": "sass style/:public/style/ --style compressed --no-source-map",
+    "sass:watch": "sass style/:public/style/ --watch",
+    "ts:build": "tsc",
+    "ts:watch": "ts-node-dev --respawn --inspect --transpile-only app.ts",
+    "build": "run-p ts:build sass:build",
     "start": "pm2 start ecosystem.config.js",
-    "predev": "npm run sass:dev",
-    "dev": "concurrently --kill-others \"npm run sass:watch\" \"ts-node-dev --respawn --inspect --transpile-only app.ts\""
+    "restart": "pm2 restart sharaga",
+    "prod": "run-s build start",
+    "prod:restart": "run-s build restart",
+    "dev": "run-p sass:watch ts:watch",
+    "svgo": "svgo -f public/icons/"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
@@ -22,6 +23,7 @@
     "handlebars": "^4.7.6",
     "html-minifier": "^4.0.0",
     "http-errors": "^1.8.0",
+    "npm-run-all": "^4.1.5",
     "pm2": "^5.1.0",
     "point-of-view": "^4.3.0",
     "sass": "^1.29.0",
@@ -33,7 +35,6 @@
     "@types/http-errors": "^1.8.0",
     "@types/node": "^16.4.13",
     "@types/node-sass": "^4.11.1",
-    "concurrently": "^6.2.0",
     "svgo": "^2.3.1",
     "ts-node-dev": "^1.0.0-pre.60"
   }
