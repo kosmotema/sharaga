@@ -145,7 +145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/html-minifier@npm:^4.0.0":
+"@types/html-minifier@npm:^4.0.1":
   version: 4.0.1
   resolution: "@types/html-minifier@npm:4.0.1"
   dependencies:
@@ -156,14 +156,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/http-errors@npm:^1.8.0":
+"@types/http-errors@npm:^1.8.1":
   version: 1.8.1
   resolution: "@types/http-errors@npm:1.8.1"
   checksum: f0710ea284a7eb5584c5e324b1dc810bc971e1adc94deff63a0c434a8a75adc020487e3e6d511cd82cef101bbcf090b8f56995c143d123e0c374dc0f61be3a61
   languageName: node
   linkType: hard
 
-"@types/node-sass@npm:^4.11.1":
+"@types/node-sass@npm:^4.11.2":
   version: 4.11.2
   resolution: "@types/node-sass@npm:4.11.2"
   dependencies:
@@ -172,7 +172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.4.13":
+"@types/node@npm:*, @types/node@npm:^16.6.0":
   version: 16.6.0
   resolution: "@types/node@npm:16.6.0"
   checksum: 72ab4b9fb47a64657d83336093867aba5bcf2f36facf3c18e9aeff802c078e44fa9f54025b02f2837eb0f2b19c1f551a5201fb4222766454c439de481dbf83d0
@@ -606,7 +606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:^1.0.0-rc.3":
+"cheerio@npm:^1.0.0-rc.10":
   version: 1.0.0-rc.10
   resolution: "cheerio@npm:1.0.0-rc.10"
   dependencies:
@@ -1325,7 +1325,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^3.2.1":
+"fastify@npm:^3.20.1":
   version: 3.20.1
   resolution: "fastify@npm:3.20.1"
   dependencies:
@@ -1571,7 +1571,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.7.6":
+"handlebars@npm:^4.7.7":
   version: 4.7.7
   resolution: "handlebars@npm:4.7.7"
   dependencies:
@@ -2826,7 +2826,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"point-of-view@npm:^4.3.0":
+"point-of-view@npm:^4.15.1":
   version: 4.15.1
   resolution: "point-of-view@npm:4.15.1"
   dependencies:
@@ -3141,7 +3141,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.29.0":
+"sass@npm:^1.37.5":
   version: 1.37.5
   resolution: "sass@npm:1.37.5"
   dependencies:
@@ -3264,25 +3264,25 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "sharaga@workspace:."
   dependencies:
-    "@types/html-minifier": ^4.0.0
-    "@types/http-errors": ^1.8.0
-    "@types/node": ^16.4.13
-    "@types/node-sass": ^4.11.1
-    cheerio: ^1.0.0-rc.3
+    "@types/html-minifier": ^4.0.1
+    "@types/http-errors": ^1.8.1
+    "@types/node": ^16.6.0
+    "@types/node-sass": ^4.11.2
+    cheerio: ^1.0.0-rc.10
     domhandler: ^4.2.0
     dotenv: ^10.0.0
-    fastify: ^3.2.1
+    fastify: ^3.20.1
     fastify-static: ^4.2.3
-    handlebars: ^4.7.6
+    handlebars: ^4.7.7
     html-minifier: ^4.0.0
     http-errors: ^1.8.0
     npm-run-all: ^4.1.5
     pm2: ^5.1.0
-    point-of-view: ^4.3.0
-    sass: ^1.29.0
+    point-of-view: ^4.15.1
+    sass: ^1.37.5
     svgo: ^2.3.1
-    ts-node-dev: ^1.0.0-pre.60
-    typescript: ^4.0.2
+    ts-node-dev: ^1.1.8
+    typescript: ^4.3.5
   languageName: unknown
   linkType: soft
 
@@ -3659,7 +3659,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"ts-node-dev@npm:^1.0.0-pre.60":
+"ts-node-dev@npm:^1.1.8":
   version: 1.1.8
   resolution: "ts-node-dev@npm:1.1.8"
   dependencies:
@@ -3758,7 +3758,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-typescript@^4.0.2:
+typescript@^4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -3768,7 +3768,7 @@ typescript@^4.0.2:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.0.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
