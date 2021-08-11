@@ -1,6 +1,6 @@
 {
   "name": "sharaga",
-  "version": "3.0.0-rc10",
+  "version": "3.0.0-beta1",
   "private": true,
   "scripts": {
     "sass:build": "sass style/:public/style/ --style compressed --no-source-map",
