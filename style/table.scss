@@ -73,61 +73,61 @@ main {
         text-align: center;
     }
 
-        > table {
+    > table {
+        width: 100%;
+        border-collapse: collapse;
+
+        tr {
             width: 100%;
-            border-collapse: collapse;
+            background-color: var(--table-bg-color);
+            color: var(--table-text-color);
 
-            tr {
+            a {
+                display: block;
+                color: var(--table-link-color);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            > th {
+                text-align: left;
+                font-size: 1.05rem;
+                padding: 10px 10px;
+
+                > a {
+                    color: var(--table-text-color);
+                }
+            }
+
+            > th,
+            > td {
                 width: 100%;
-                background-color: var(--table-bg-color);
-                color: var(--table-text-color);
+                border: 1px solid var(--table-border-color);
 
-                a {
-                    display: block;
-                    color: var(--table-link-color);
-                    text-decoration: none;
+                white-space: nowrap;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }
+                &.icon {
+                    width: 35px;
+                }
+            }
+
+            > td {
+                padding: 4px 8px;
+
+                &.icon > img {
+                    height: 35px;
                 }
 
-                > th {
-                    text-align: left;
-                    font-size: 1.05rem;
-                    padding: 10px 10px;
-
-                    > a {
-                        color: var(--table-text-color);
-                    }
-                }
-
-                > th,
-                > td {
-                    width: 100%;
-                    border: 1px solid var(--table-border-color);
-
-                    white-space: nowrap;
-
-                    &.icon {
-                        width: 35px;
-                    }
-                }
-
-                > td {
-                    padding: 4px 8px;
-
-                    &.icon > img {
-                        height: 35px;
-                    }
-
-                    &.name {
-                        white-space: normal;
-                        overflow-wrap: break-word;
-                        word-break: break-word;
-                    }
+                &.name {
+                    white-space: normal;
+                    overflow-wrap: break-word;
+                    word-break: break-word;
                 }
             }
         }
+    }
     // }
 }

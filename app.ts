@@ -46,12 +46,19 @@ proxify(server);
 if (isDevelopment)
     server.register(fastifyStatic, {
         root: join(__dirname, 'public'),
-        prefix: '/static/',
-    })
+        prefix: '/static/'
+    });
 
 server.setErrorHandler(function (error, _request, reply) {
-    reply.code(error.statusCode ?? 500).view('error', { status: error.statusCode, message: error.message, style: 'error', title: error.message.toLowerCase() });
-})
+    reply
+        .code(error.statusCode ?? 500)
+        .view('error', {
+            status: error.statusCode,
+            message: error.message,
+            style: 'error',
+            title: error.message.toLowerCase()
+        });
+});
 
 const start = async () => {
     try {
@@ -61,5 +68,5 @@ const start = async () => {
         server.log.error(err);
         process.exit(1);
     }
-}
+};
 start();

@@ -1,5 +1,5 @@
-export type LinkPart = { text: string, href: string };
-export type ParseResult = { items: LinkPart[], last?: string, title: string };
+export type LinkPart = { text: string; href: string };
+export type ParseResult = { items: LinkPart[]; last?: string; title: string };
 
 function trim(url: string): string {
     const i = url.indexOf('?');
@@ -8,7 +8,8 @@ function trim(url: string): string {
 
 export default function (path: string): ParseResult {
     const items: LinkPart[] = [];
-    let title = '/', link = '/';
+    let title = '/',
+        link = '/';
     for (const part of trim(path).split('/')) {
         if (part) {
             const text = decodeURIComponent(part);

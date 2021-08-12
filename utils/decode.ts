@@ -18,8 +18,7 @@ export function decode(
 export function toBufferEncoding(
     contentType?: string
 ): BufferEncoding | undefined {
-    if (!contentType)
-        return undefined;
+    if (!contentType) return undefined;
 
     const charset = parseCharset(contentType);
     // follow https://www.iana.org/assignments/character-sets/character-sets.xhtml
