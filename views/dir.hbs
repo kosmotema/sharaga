@@ -1,49 +1,57 @@
 <header>
     {{#if last}}
-    <a id='back' href='..'></a>
+        <a id='back' href='..'></a>
     {{/if}}
     <div>
         <span>Index of /</span>
         {{#if last}}
-        {{#each navigation}}
-        <a href='{{this.href}}'>{{this.text}}</a>
-        <span>/</span>
-        {{/each}}
-        <span>{{last}}</span>
-        <span>/</span>
+            {{#each navigation}}
+                <a href='{{this.href}}'>{{this.text}}</a>
+                <span>/</span>
+            {{/each}}
+            <span>{{last}}</span>
+            <span>/</span>
         {{/if}}
     </div>
 </header>
 
-<main>
+<main class='container'>
     {{#if rows}}
         <table>
             <thead>
                 <tr>
                     <th class='icon'></th>
-                    <th class='name'>{{#if sort.name}}<a href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</th>
-                    <th class='lastmod'>{{#if sort.date}}<a href='{{sort.date}}'>Дата изменения</a>{{else}}Дата
-                        изменения{{/if}}</th>
-                    <th class='size'>{{#if sort.size}}<a href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</th>
+                    <th class='name'>{{#if sort.name}}<a
+                                href='{{sort.name}}'
+                            >Название</a>{{else}}Название{{/if}}</th>
+                    <th class='lastmod'>{{#if sort.date}}<a
+                                href='{{sort.date}}'
+                            >Дата изменения</a>{{else}}Дата изменения{{/if}}</th>
+                    <th class='size'>{{#if sort.size}}<a
+                                href='{{sort.size}}'
+                            >Размер</a>{{else}}Размер{{/if}}</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each rows}}
-                <tr>
-                    <td class='icon'>
-                        <img src='/static/icons/{{this.type}}.svg' alt='{{this.type}}'>
-                    </td>
-                    <td class='name'>
-                        <a href='{{this.link}}'>{{this.name}}</a>
-                    </td>
-                    <td class='lastmod'>{{this.date}}</td>
-                    <td class='size'>{{this.size}}</td>
-                </tr>
+                    <tr>
+                        <td class='icon'>
+                            <img
+                                src='/static/icons/{{this.type}}.svg'
+                                alt='{{this.type}}'
+                            />
+                        </td>
+                        <td class='name'>
+                            <a href='{{this.link}}'>{{this.name}}</a>
+                        </td>
+                        <td class='lastmod'>{{this.date}}</td>
+                        <td class='size'>{{this.size}}</td>
+                    </tr>
                 {{/each}}
 
             </tbody>
         </table>
     {{else}}
-    <h1>Упс... А здесь ничего нет <span class='spacing-wide'>¯\(°_o)/¯</span></h1>
+        <h1>Упс... А здесь ничего нет<span class='spacing-wide'>（⊙_◎）</span></h1>
     {{/if}}
 </main>

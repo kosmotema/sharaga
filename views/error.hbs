@@ -1,13 +1,13 @@
-<main>
+<main class='container'>
     <article>
         <h1>{{status}}.</h1>
         <h5>{{message}}</h5>
     </article>
 
     {{#if error.stack}}
-    <details>
-        <summary>Debug info</summary>
-        <pre>{{error.stack}}</pre>
-    </details>
+        <details>
+            <summary>Debug info</summary>
+            <pre>{{error.stack}}</pre>
+        </details>
     {{/if}}
 </main>
