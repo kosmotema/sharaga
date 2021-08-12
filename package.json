@@ -13,7 +13,8 @@
         "prod": "run-s build start",
         "prod:restart": "run-s build restart",
         "dev": "run-p sass:watch ts:watch",
-        "svgo": "svgo -f public/icons/"
+        "svgo": "svgo -f public/icons/",
+        "format": "yarn prettier --write ."
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.10",
