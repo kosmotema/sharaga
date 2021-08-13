@@ -1,4 +1,3 @@
-import { config } from 'dotenv';
 import fastify from 'fastify';
 import minifier from 'html-minifier';
 import fastifyStatic from 'fastify-static';
@@ -7,10 +6,11 @@ import { join } from 'path';
 import handlebars from 'handlebars';
 
 import proxify from './utils/proxify';
+import {
+  VERSION, PORT, NPM_VERSION, ENV,
+} from './utils/params';
 
-config();
-
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = ENV === 'development';
 
 const server = fastify({ logger: isDevelopment });
 
@@ -36,7 +36,7 @@ server.register(view, {
     },
   },
   defaultContext: {
-    version: process.env.npm_package_version || process.env.VERSION,
+    version: NPM_VERSION || VERSION,
   },
   viewExt: 'hbs',
 });
@@ -61,7 +61,7 @@ server.setErrorHandler((error, _request, reply) => {
 
 const start = async () => {
   try {
-    await server.listen(process.env.PORT ?? '3000');
+    await server.listen(PORT ?? '3000');
     server.log.info(`server listening on ${server.server.address()}`);
   } catch (err) {
     server.log.error(err);
