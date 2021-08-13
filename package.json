@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/html-minifier": "^4.0.1",
     "@types/http-errors": "^1.8.1",
-    "@types/node": "^16.6.0",
+    "@types/node": "^16.6.1",
     "@types/node-sass": "^4.11.2",
     "svgo": "^2.3.1",
     "ts-node-dev": "^1.1.8"
