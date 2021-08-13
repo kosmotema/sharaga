@@ -1,133 +1,133 @@
 :root {
-    --table-bg-color: #fafafa;
-    --table-text-color: #444;
-    --table-link-color: #4682b4;
-    --table-border-color: #ccc;
+  --table-bg-color: #fafafa;
+  --table-text-color: #444;
+  --table-link-color: #4682b4;
+  --table-border-color: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --table-bg-color: #222;
-        --table-text-color: #ddd;
-        --table-link-color: #87cefa;
-        --table-border-color: #555;
-    }
+  :root {
+    --table-bg-color: #222;
+    --table-text-color: #ddd;
+    --table-link-color: #87cefa;
+    --table-border-color: #555;
+  }
 }
 
 header {
-    width: 100%;
-    flex: 0 0 auto;
-    text-align: center;
-    margin: 1.25rem 0;
-    font-size: 1.5rem;
+  width: 100%;
+  flex: 0 0 auto;
+  text-align: center;
+  margin: 1.25rem 0;
+  font-size: 1.5rem;
+  color: var(--header-text-color);
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  a {
     color: var(--header-text-color);
 
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
+    &:hover {
+      color: var(--header-hover-color);
     }
+  }
 
-    a {
-        color: var(--header-text-color);
+  & {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
 
-        &:hover {
-            color: var(--header-hover-color);
-        }
+  > div {
+    overflow-x: auto;
+    white-space: nowrap;
+    text-overflow: unset;
+    display: inline;
+  }
+
+  > a#back {
+    display: inline-block;
+    min-width: 1.5rem;
+    height: 100%;
+    min-height: 1.5rem;
+    margin-right: 1vw;
+    background: url('/static/icons/_back.svg') center/contain no-repeat;
+
+    &:hover {
+      filter: invert(25%);
     }
-
-    & {
-        display: flex;
-        flex-flow: row nowrap;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    > div {
-        overflow-x: auto;
-        white-space: nowrap;
-        text-overflow: unset;
-        display: inline;
-    }
-
-    > a#back {
-        display: inline-block;
-        min-width: 1.5rem;
-        height: 100%;
-        min-height: 1.5rem;
-        margin-right: 1vw;
-        background: url('/static/icons/_back.svg') center/contain no-repeat;
-
-        &:hover {
-            filter: invert(25%);
-        }
-    }
+  }
 }
 
 main {
-    justify-content: start;
-    overflow-x: auto;
+  justify-content: start;
+  overflow-x: auto;
 
-    > h1 {
-        margin: auto;
-        text-align: center;
-    }
+  > h1 {
+    margin: auto;
+    text-align: center;
+  }
 
-    > table {
-        width: 100%;
-        border-collapse: collapse;
+  > table {
+    width: 100%;
+    border-collapse: collapse;
 
-        tr {
-            width: 100%;
-            background-color: var(--table-bg-color);
-            color: var(--table-text-color);
+    tr {
+      width: 100%;
+      background-color: var(--table-bg-color);
+      color: var(--table-text-color);
 
-            a {
-                display: block;
-                color: var(--table-link-color);
-                text-decoration: none;
+      a {
+        display: block;
+        color: var(--table-link-color);
+        text-decoration: none;
 
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            > th {
-                text-align: left;
-                font-size: 1.05rem;
-                padding: 10px 10px;
-
-                > a {
-                    color: var(--table-text-color);
-                }
-            }
-
-            > th,
-            > td {
-                width: 100%;
-                border: 1px solid var(--table-border-color);
-
-                white-space: nowrap;
-
-                &.icon {
-                    width: 35px;
-                }
-            }
-
-            > td {
-                padding: 4px 8px;
-
-                &.icon > img {
-                    height: 35px;
-                }
-
-                &.name {
-                    white-space: normal;
-                    overflow-wrap: break-word;
-                    word-break: break-word;
-                }
-            }
+        &:hover {
+          text-decoration: underline;
         }
+      }
+
+      > th {
+        text-align: left;
+        font-size: 1.05rem;
+        padding: 10px 10px;
+
+        > a {
+          color: var(--table-text-color);
+        }
+      }
+
+      > th,
+      > td {
+        width: 100%;
+        border: 1px solid var(--table-border-color);
+
+        white-space: nowrap;
+
+        &.icon {
+          width: 35px;
+        }
+      }
+
+      > td {
+        padding: 4px 8px;
+
+        &.icon > img {
+          height: 35px;
+        }
+
+        &.name {
+          white-space: normal;
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+      }
     }
-    // }
+  }
+  // }
 }

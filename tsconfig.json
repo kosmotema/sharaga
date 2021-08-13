@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-        "incremental": true,
-        "target": "es2016",
-        "module": "commonjs",
-        "allowJs": false,
-        "outDir": "./",
-        "strict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true
-    },
-    "include": ["app.ts", "utils/"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "allowJs": false,
+    "outDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["app.ts", "utils/"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
