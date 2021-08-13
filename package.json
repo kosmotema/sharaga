@@ -8,7 +8,7 @@
     "ts:build": "tsc --build --verbose",
     "ts:watch": "ts-node-dev --respawn --inspect --transpile-only ./app.ts",
     "build": "run-p ts:build sass:build",
-    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:start": "pm2 start pm2.json",
     "pm2:restart": "pm2 restart sharaga --update-env",
     "pm2:stop": "pm2 delete sharaga",
     "pm2:save": "pm2 save",
