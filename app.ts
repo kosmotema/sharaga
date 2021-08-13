@@ -1,6 +1,4 @@
 import { config } from 'dotenv';
-config();
-
 import fastify from 'fastify';
 import minifier from 'html-minifier';
 import fastifyStatic from 'fastify-static';
@@ -9,6 +7,8 @@ import { join } from 'path';
 import handlebars from 'handlebars';
 
 import proxify from './utils/proxify';
+
+config();
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
