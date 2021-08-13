@@ -14,7 +14,8 @@
     "prod:restart": "run-s build restart",
     "dev": "run-p sass:watch ts:watch",
     "svgo": "svgo -f public/icons/",
-    "format": "yarn prettier --write ."
+    "format": "prettier . --write",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
