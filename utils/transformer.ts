@@ -41,7 +41,6 @@ function href(element: Node | null): string {
 
 export default function transform(data: string, url: string): TransformResult {
   const $ = load(data);
-  const items = [];
   const rows = $('body>table>tbody>tr').toArray();
   const header = rows[0].children;
   const sort = {
@@ -49,20 +48,22 @@ export default function transform(data: string, url: string): TransformResult {
     date: href(header[2]),
     size: href(header[3]),
   };
-  for (const element of rows.slice(3, -1)) {
+
+  const items = rows.slice(3, -1).map((element) => {
     const row = element.children;
     const link = href(row[1]);
     const isFolder = link[link.length - 1] === '/';
     const name = text(firstChild(row[1]));
-    items.push({
+    return {
       type: isFolder ? 'folder' : typer(extname(link).slice(1)),
       link,
       name: isFolder ? name.slice(0, -1) : name,
       date: text(row[2]),
       size: text(row[3]),
-    });
-  }
-  const { items: navigation, title, last } = navigator(url);
+    };
+  });
+
+  const { parts: navigation, title, last } = navigator(url);
   return {
     rows: items, navigation, title, last, sort,
   };

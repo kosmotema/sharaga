@@ -1,5 +1,5 @@
 export type LinkPart = { text: string; href: string };
-export type ParseResult = { items: LinkPart[]; last?: string; title: string };
+export type ParseResult = { parts: LinkPart[]; last?: string; title: string };
 
 function trim(url: string): string {
   const i = url.indexOf('?');
@@ -7,17 +7,16 @@ function trim(url: string): string {
 }
 
 export default function parse(path: string): ParseResult {
-  const items: LinkPart[] = [];
   let title = '/';
   let link = '/';
-  for (const part of trim(path).split('/')) {
-    if (part) {
-      const text = decodeURIComponent(part);
-      link += `${part}/`;
-      title += `${text}/`;
-      items.push({ text, href: link });
-    }
-  }
-  const last = items.pop()?.text;
-  return { items, last, title };
+
+  const parts: LinkPart[] = trim(path).split('/').filter(Boolean).map((part) => {
+    const text = decodeURIComponent(part);
+    link += `${part}/`;
+    title += `${text}/`;
+    return { text, href: link };
+  });
+
+  const last = parts.pop()?.text;
+  return { parts, last, title };
 }

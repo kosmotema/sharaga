@@ -23,6 +23,7 @@ export default function setup(server: FastifyInstance) {
       headers: request.headers,
       auth: info.auth,
     };
+    // eslint-disable-next-line consistent-return
     get(info.origin + request.url, options, (proxy) => {
       const { headers, statusCode: code } = proxy;
       if (headers.authorization) {

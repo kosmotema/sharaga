@@ -3,9 +3,8 @@ import { createGunzip, createBrotliDecompress, createInflate } from 'zlib';
 
 export default function produceDecompressChain(header: string) {
   const encodings = header.split(',').map((s) => s.trim());
-  let decompress: Transform | undefined;
 
-  for (const encoding of encodings) {
+  return encodings.reduce((decompress: Transform | undefined, encoding) => {
     let target: Transform;
     switch (encoding) {
       case 'gzip':
@@ -22,8 +21,6 @@ export default function produceDecompressChain(header: string) {
         return undefined;
     }
 
-    decompress = decompress ? target.pipe(decompress) : target;
-  }
-
-  return decompress;
+    return decompress ? target.pipe(decompress) : target;
+  }, undefined);
 }
