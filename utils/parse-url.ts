@@ -3,18 +3,18 @@ export type ParseResult = { items: LinkPart[]; last?: string; title: string };
 
 function trim(url: string): string {
   const i = url.indexOf('?');
-  return ~i ? url.slice(0, i) : url;
+  return i !== -1 ? url.slice(0, i) : url;
 }
 
-export default function (path: string): ParseResult {
+export default function parse(path: string): ParseResult {
   const items: LinkPart[] = [];
-  let title = '/',
-    link = '/';
+  let title = '/';
+  let link = '/';
   for (const part of trim(path).split('/')) {
     if (part) {
       const text = decodeURIComponent(part);
-      link += part + '/';
-      title += text + '/';
+      link += `${part}/`;
+      title += `${text}/`;
       items.push({ text, href: link });
     }
   }

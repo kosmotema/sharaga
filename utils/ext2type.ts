@@ -1,4 +1,4 @@
-export default function (extension: string) {
+export default function toType(extension: string) {
   switch (extension.toLowerCase()) {
     case 'zip':
     case '7z':

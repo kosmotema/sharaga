@@ -1,22 +1,26 @@
 import { Readable } from 'stream';
 
-const CHARSET_RE = /charset=([^()<>@,;:\"/[\]?.=\s]*)/i;
+const CHARSET_RE = /charset=([^()<>@,;:"/[\]?.=\s]*)/i;
 
 export function decode(
   stream: Readable,
-  charset: BufferEncoding
+  charset: BufferEncoding,
 ): Promise<string> {
-  return new Promise<string>(resolve => {
+  return new Promise<string>((resolve) => {
     let data = '';
     stream
       .setEncoding(charset)
-      .on('data', (chunk: string) => (data += chunk))
+      .on('data', (chunk: string) => { data += chunk; })
       .on('end', () => resolve(data));
   });
 }
 
+function parseCharset(contentType: string): string | undefined {
+  return CHARSET_RE.exec(contentType.toLowerCase())?.[1];
+}
+
 export function toBufferEncoding(
-  contentType?: string
+  contentType?: string,
 ): BufferEncoding | undefined {
   if (!contentType) return undefined;
 
@@ -60,8 +64,4 @@ export function toBufferEncoding(
     default:
       return undefined;
   }
-}
-
-function parseCharset(contentType: string): string | undefined {
-  return CHARSET_RE.exec(contentType.toLowerCase())?.[1];
 }
