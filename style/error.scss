@@ -1,16 +1,16 @@
 main {
   justify-content: space-around;
+}
 
-  > article {
-    font-size: clamp(1.5rem, 10vh, 5rem);
-    text-align: center;
-  }
+article {
+  font-size: clamp(1.5rem, 10vh, 5rem);
+  text-align: center;
+}
 
-  > details {
-    margin-top: 1.5rem;
-  }
+details {
+  margin-top: 1.5rem;
 
-  > details[open] > summary + pre {
+  &[open] > summary + pre {
     animation: appear 0.35s ease-in-out;
   }
 }

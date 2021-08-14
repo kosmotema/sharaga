@@ -15,14 +15,13 @@
 }
 
 header {
-  width: 100%;
-  flex: 0 0 auto;
-  text-align: center;
-  margin: 1.25rem 0;
-  font-size: 1.5rem;
   color: var(--header-text-color);
-
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  margin: 1.25rem 0;
   scrollbar-width: none;
+  text-align: center;
+  width: 100%;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -36,27 +35,27 @@ header {
   }
 
   & {
-    display: flex;
-    flex-flow: row nowrap;
     align-content: center;
     align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
   }
 
   > div {
-    overflow-x: auto;
-    white-space: nowrap;
-    text-overflow: unset;
     display: inline;
+    overflow-x: auto;
+    text-overflow: unset;
+    white-space: nowrap;
   }
 
   > a#back {
-    display: inline-block;
-    min-width: 1.5rem;
-    height: 100%;
-    min-height: 1.5rem;
-    margin-right: 1vw;
     background: url('/static/icons/_back.svg') center/contain no-repeat;
+    display: inline-block;
+    height: 100%;
+    margin-right: 1vw;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
 
     &:hover {
       filter: invert(25%);
@@ -74,17 +73,17 @@ main {
   }
 
   > table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 
     tr {
-      width: 100%;
       background-color: var(--table-bg-color);
       color: var(--table-text-color);
+      width: 100%;
 
       a {
-        display: block;
         color: var(--table-link-color);
+        display: block;
         text-decoration: none;
 
         &:hover {
@@ -93,9 +92,9 @@ main {
       }
 
       > th {
-        text-align: left;
         font-size: 1.05rem;
-        padding: 10px 10px;
+        padding: 10px;
+        text-align: left;
 
         > a {
           color: var(--table-text-color);
@@ -104,10 +103,9 @@ main {
 
       > th,
       > td {
-        width: 100%;
         border: 1px solid var(--table-border-color);
-
         white-space: nowrap;
+        width: 100%;
 
         &.icon {
           width: 35px;
@@ -122,8 +120,8 @@ main {
         }
 
         &.name {
-          white-space: normal;
           overflow-wrap: break-word;
+          white-space: normal;
           word-break: break-word;
         }
       }
