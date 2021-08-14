@@ -31,10 +31,7 @@ public/error/
 *.js
 
 # ignore pm2 config
-ecosystem.config.js
-
-# include pm2 example config
-!ecosystem.config.example.js
+pm2.config.json
 
 # yarn berry w/o zero-installs
 .yarn/*

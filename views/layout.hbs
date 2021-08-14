@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 <html lang='ru-RU'>
-
     <head>
         <title>Sharaga{{#if title}} - {{title}}{{/if}}</title>
         <meta charset='utf-8' />
@@ -13,11 +11,45 @@
     </head>
 
     <body>
-        {{> nav}}
+        <nav>
+            <div class='container'>
+                <img alt='logo' id='logo' />
+                <a href='/' id='title'>Sharaga</a>
+                <input id='menu' type='checkbox' hidden />
+                <label for='menu'>
+                </label>
+                <section id='links'>
+                    <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='https://www.tu-bryansk.ru/education/schedule/'
+                    >Расписание</a>
+                    <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='https://www.tu-bryansk.ru/sveden/employees/'
+                    >Преподаватели</a>
+                    <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='http://arm.iipo.tu-bryansk.ru'
+                    >АРМ</a>
+                    <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='http://edu.tu-bryansk.ru'
+                    >ЭИОС</a>
+                </section>
+            </div>
+        </nav>
+
         <div class='container'>
             {{{body}}}
         </div>
-        {{> footer}}
-    </body>
 
+        <footer>
+            <p>Sharaga v{{version}}. Made with ❤ by
+                <a href='https://xapdkop.dev'>xapdkop</a></p>
+        </footer>
+    </body>
 </html>

@@ -21,10 +21,6 @@ server.register(view, {
   root: path.join(__dirname, 'views'),
   layout: 'layout',
   options: {
-    partials: {
-      nav: './partials/nav.hbs',
-      footer: './partials/footer.hbs',
-    },
     useHtmlMinifier: minifier,
     htmlMinifierOptions: {
       removeComments: true,
