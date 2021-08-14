@@ -23,7 +23,8 @@
     "check:format": "prettier . --check",
     "check:lint": "eslint .",
     "format": "prettier . --write",
-    "lint": "eslint . --fix"
+    "lint:es": "eslint . --fix",
+    "lint:style": "stylelint ./style --fix"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
