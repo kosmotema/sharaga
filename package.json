@@ -20,6 +20,8 @@
     "prod:restart": "run-s build pm2:restart pm2:save",
     "dev": "run-p sass:watch ts:watch",
     "svgo": "svgo -f public/icons/",
+    "check:format": "prettier . --check",
+    "check:lint": "eslint .",
     "format": "prettier . --write",
     "lint": "eslint . --fix"
   },
