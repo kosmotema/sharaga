@@ -59,7 +59,7 @@ export default function setup(server: FastifyInstance) {
         decode(stream, bufferEncoding).then((data) => reply.view('dir', {
           style: 'table',
           ...transform(data, request.url),
-        }));
+        })).catch((error) => new createError.InternalServerError(error?.message));
       } else reply.code(200).headers(headers).send(proxy);
     }).on('error', (error) => reply.send(new createError.InternalServerError(error.message)));
   });

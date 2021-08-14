@@ -6,12 +6,13 @@ export function decode(
   stream: Readable,
   charset: BufferEncoding,
 ): Promise<string> {
-  return new Promise<string>((resolve) => {
+  return new Promise<string>((resolve, reject) => {
     let data = '';
     stream
       .setEncoding(charset)
       .on('data', (chunk: string) => { data += chunk; })
-      .on('end', () => resolve(data));
+      .on('end', () => resolve(data))
+      .on('error', (error) => reject(error));
   });
 }
 
