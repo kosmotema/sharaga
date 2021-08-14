@@ -17,5 +17,7 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint", "regexp", "unicorn"],
-  "rules": {}
+  "rules": {
+    "unicorn/prefer-module": "off"
+  }
 }
