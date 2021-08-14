@@ -2,3 +2,8 @@ extends:
   - stylelint-config-standard
   - stylelint-config-sass-guidelines
   - stylelint-config-prettier
+rules:
+  selector-no-qualifying-type:
+    - true
+    - ignore: ['attribute']
+  max-nesting-depth: 2
