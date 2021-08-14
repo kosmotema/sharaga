@@ -24,6 +24,6 @@ export default function produceDecompressChain(header: string): Transform | unde
     }
 
     return decompress ? target.pipe(decompress) : target;
-  // eslint-disable-next-line unicorn/no-useless-undefined
+    // eslint-disable-next-line unicorn/no-useless-undefined
   }, undefined);
 }

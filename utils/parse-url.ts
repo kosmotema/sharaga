@@ -10,12 +10,15 @@ export default function parse(path: string): ParseResult {
   let title = '/';
   let link = '/';
 
-  const parts: LinkPart[] = trim(path).split('/').filter(Boolean).map((part) => {
-    const text = decodeURIComponent(part);
-    link += `${part}/`;
-    title += `${text}/`;
-    return { text, href: link };
-  });
+  const parts: LinkPart[] = trim(path)
+    .split('/')
+    .filter(Boolean)
+    .map((part) => {
+      const text = decodeURIComponent(part);
+      link += `${part}/`;
+      title += `${text}/`;
+      return { text, href: link };
+    });
 
   const last = parts.pop()?.text;
   return { parts, last, title };

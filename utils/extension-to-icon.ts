@@ -1,4 +1,12 @@
-export type IconType = 'archive' | 'document' | 'image' | 'spreadsheet' | 'presentation' | 'pdf' | 'text' | 'unknown';
+export type IconType =
+  | 'archive'
+  | 'document'
+  | 'image'
+  | 'spreadsheet'
+  | 'presentation'
+  | 'pdf'
+  | 'text'
+  | 'unknown';
 
 export default function toIcon(extension: string): IconType {
   switch (extension.toLowerCase()) {

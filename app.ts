@@ -6,9 +6,7 @@ import path from 'node:path';
 import handlebars from 'handlebars';
 
 import proxify from './utils/proxify';
-import {
-  VERSION, PORT, NPM_VERSION, ENV,
-} from './utils/parameters';
+import { VERSION, PORT, NPM_VERSION, ENV } from './utils/parameters';
 
 const isDevelopment = ENV === 'development';
 

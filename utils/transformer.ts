@@ -1,7 +1,5 @@
 import { load } from 'cheerio';
-import {
-  hasChildren, isTag, isText, Node,
-} from 'domhandler';
+import { hasChildren, isTag, isText, Node } from 'domhandler';
 import path from 'node:path';
 
 import navigator, { LinkPart } from './parse-url';
@@ -66,6 +64,10 @@ export default function transform(data: string, url: string): TransformResult {
 
   const { parts: navigation, title, last } = navigator(url);
   return {
-    rows: items, navigation, title, last, sort,
+    rows: items,
+    navigation,
+    title,
+    last,
+    sort,
   };
 }
