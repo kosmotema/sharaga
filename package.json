@@ -2,6 +2,9 @@
   "name": "sharaga",
   "version": "3.0.0-beta2",
   "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "sass:build": "sass style/:public/style/ --style compressed --no-source-map --update",
     "sass:watch": "sass style/:public/style/ --watch",
@@ -42,6 +45,8 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-regexp": "^1.0.0",
+    "eslint-plugin-unicorn": "^35.0.0",
     "prettier": "2.3.2",
     "svgo": "^2.3.1",
     "ts-node-dev": "^1.1.8"
