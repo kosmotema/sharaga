@@ -1873,6 +1873,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-prettier@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "eslint-config-prettier@npm:8.3.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: df4cea3032671995bb5ab07e016169072f7fa59f44a53251664d9ca60951b66cdc872683b5c6a3729c91497c11490ca44a79654b395dd6756beb0c3903a37196
+  languageName: node
+  linkType: hard
+
 "eslint-import-resolver-node@npm:*, eslint-import-resolver-node@npm:^0.3.5":
   version: 0.3.5
   resolution: "eslint-import-resolver-node@npm:0.3.5"
@@ -1915,6 +1926,15 @@ __metadata:
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0
   checksum: 79fb1094197cd1dc720725bd29e5c5fe7d123fd9dd31eb182849993a81a8c18e2bfbc4d267a2caabe02bd4d21aafb1eca1da2f55aca7e5df99fd8ba908e7b869
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-promise@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "eslint-plugin-promise@npm:5.1.0"
+  peerDependencies:
+    eslint: ^7.0.0
+  checksum: e62947aaea6882951a1a9f5fe3e3c7925b8dcc222338f7979bd1495ba0f0dc701820116b108be1e801f6e5156eb9a928142f29c659fd21a5d65a4be495bb327d
   languageName: node
   linkType: hard
 
@@ -4809,7 +4829,9 @@ fsevents@~2.3.2:
     dotenv: ^10.0.0
     eslint: ^7.32.0
     eslint-config-airbnb-typescript: ^12.3.1
+    eslint-config-prettier: ^8.3.0
     eslint-plugin-import: ^2.24.0
+    eslint-plugin-promise: ^5.1.0
     eslint-plugin-regexp: ^1.0.0
     eslint-plugin-unicorn: ^35.0.0
     fastify: ^3.20.1

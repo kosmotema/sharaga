@@ -8,7 +8,9 @@
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
     "plugin:regexp/recommended",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:promise/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,7 +18,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "regexp", "unicorn"],
+  "plugins": ["@typescript-eslint", "regexp", "unicorn", "promise"],
   "rules": {
     "unicorn/prefer-module": "off"
   }
