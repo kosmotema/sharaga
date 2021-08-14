@@ -32,4 +32,6 @@ public/style/
 
 # yarn berry w/o zero-installs
 .yarn/*
+yarn.lock
+.yarnrc.yml
 .pnp.*
