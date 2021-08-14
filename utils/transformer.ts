@@ -2,10 +2,10 @@ import { load } from 'cheerio';
 import {
   hasChildren, isTag, isText, Node,
 } from 'domhandler';
-import { extname } from 'path';
+import path from 'node:path';
 
 import navigator, { LinkPart } from './parse-url';
-import typer from './ext2type';
+import typer from './extension-to-icon';
 
 type RowData = {
   type: string;
@@ -26,6 +26,7 @@ export type TransformResult = {
 };
 
 function firstChild(element: Node | null): Node | null {
+  // eslint-disable-next-line unicorn/no-null
   return element && hasChildren(element) ? element.firstChild : null;
 }
 
@@ -55,7 +56,7 @@ export default function transform(data: string, url: string): TransformResult {
     const isFolder = link[link.length - 1] === '/';
     const name = text(firstChild(row[1]));
     return {
-      type: isFolder ? 'folder' : typer(extname(link).slice(1)),
+      type: isFolder ? 'folder' : typer(path.extname(link).slice(1)),
       link,
       name: isFolder ? name.slice(0, -1) : name,
       date: text(row[2]),

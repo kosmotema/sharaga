@@ -1,24 +1,26 @@
 import { FastifyInstance } from 'fastify';
 
-import { get as httpGet } from 'http';
-import { get as httpsGet } from 'https';
+import { get as httpGet } from 'node:http';
+import { get as httpsGet } from 'node:https';
 import createError from 'http-errors';
-import { Readable } from 'stream';
+import { Readable } from 'node:stream';
 
 import transform from './transformer';
-import params from './params';
+import parameters from './parameters';
 import decompress from './decompress';
 import { decode, toBufferEncoding } from './decode';
 
-const get = params.protocol === 'https' ? httpsGet : httpGet;
+const get = parameters.protocol === 'https' ? httpsGet : httpGet;
 const info = {
-  origin: params.url.toString(),
-  auth: params.auth,
+  origin: parameters.url.toString(),
+  auth: parameters.auth,
 };
 
+// FIXME: use fastify pluggins syntax
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function setup(server: FastifyInstance) {
   return server.get('*', (request, reply) => {
-    request.headers.host = params.url.hostname;
+    request.headers.host = parameters.url.hostname;
     const options = {
       headers: request.headers,
       auth: info.auth,
@@ -59,6 +61,6 @@ export default function setup(server: FastifyInstance) {
           ...transform(data, request.url),
         }));
       } else reply.code(200).headers(headers).send(proxy);
-    }).on('error', (e) => reply.send(new createError.InternalServerError(e.message)));
+    }).on('error', (error) => reply.send(new createError.InternalServerError(error.message)));
   });
 }

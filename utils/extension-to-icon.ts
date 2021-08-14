@@ -1,4 +1,6 @@
-export default function toType(extension: string) {
+export type IconType = 'archive' | 'document' | 'image' | 'spreadsheet' | 'presentation' | 'pdf' | 'text' | 'unknown';
+
+export default function toIcon(extension: string): IconType {
   switch (extension.toLowerCase()) {
     case 'zip':
     case '7z':

@@ -2,13 +2,13 @@ import fastify from 'fastify';
 import minifier from 'html-minifier';
 import fastifyStatic from 'fastify-static';
 import view from 'point-of-view';
-import { join } from 'path';
+import path from 'node:path';
 import handlebars from 'handlebars';
 
 import proxify from './utils/proxify';
 import {
   VERSION, PORT, NPM_VERSION, ENV,
-} from './utils/params';
+} from './utils/parameters';
 
 const isDevelopment = ENV === 'development';
 
@@ -18,7 +18,7 @@ server.register(view, {
   engine: {
     handlebars,
   },
-  root: join(__dirname, 'views'),
+  root: path.join(__dirname, 'views'),
   layout: 'layout',
   options: {
     partials: {
@@ -45,7 +45,7 @@ proxify(server);
 
 if (isDevelopment) {
   server.register(fastifyStatic, {
-    root: join(__dirname, 'public'),
+    root: path.join(__dirname, 'public'),
     prefix: '/static/',
   });
 }
@@ -63,9 +63,9 @@ const start = async () => {
   try {
     await server.listen(PORT ?? '3000');
     server.log.info(`server listening on ${server.server.address()}`);
-  } catch (err) {
-    server.log.error(err);
-    process.exit(1);
+  } catch (error) {
+    server.log.error(error);
+    throw error;
   }
 };
 start();

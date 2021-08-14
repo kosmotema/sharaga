@@ -1,6 +1,6 @@
-import { Readable } from 'stream';
+import { Readable } from 'node:stream';
 
-const CHARSET_RE = /charset=([^()<>@,;:"/[\]?.=\s]*)/i;
+const CHARSET_RE = /charset=([^\s"(),./:;<=>?@[\]]*)/i;
 
 export function decode(
   stream: Readable,

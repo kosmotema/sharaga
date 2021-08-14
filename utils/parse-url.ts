@@ -2,8 +2,8 @@ export type LinkPart = { text: string; href: string };
 export type ParseResult = { parts: LinkPart[]; last?: string; title: string };
 
 function trim(url: string): string {
-  const i = url.indexOf('?');
-  return i !== -1 ? url.slice(0, i) : url;
+  const index = url.indexOf('?');
+  return index !== -1 ? url.slice(0, index) : url;
 }
 
 export default function parse(path: string): ParseResult {
