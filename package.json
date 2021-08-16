@@ -22,7 +22,7 @@
     "cheerio": "^1.0.0-rc.10",
     "domhandler": "^4.2.0",
     "dotenv": "^10.0.0",
-    "fastify": "^3.20.1",
+    "fastify": "^3.20.2",
     "fastify-static": "^4.2.3",
     "handlebars": "^4.7.7",
     "html-minifier": "^4.0.0",
