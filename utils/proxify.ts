@@ -1,4 +1,4 @@
-import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyPluginAsync, FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 
 import { get as httpGet } from 'node:http';
 import { get as httpsGet } from 'node:https';
@@ -64,12 +64,10 @@ function proxy(request: FastifyRequest, reply: FastifyReply) {
         .catch((error) => new createError.InternalServerError(error?.message));
     } else reply.code(code).headers(headers).send(upstream);
   }).on('error', (error) => reply.send(new createError.InternalServerError(error.message)));
-};
+}
 
-const setup: FastifyPluginCallback = (fastify, _, done) => {
+const plugin: FastifyPluginAsync = async (fastify) => {
   fastify.get('*', proxy);
-
-  done();
 };
 
-export default setup;
+export default plugin;
