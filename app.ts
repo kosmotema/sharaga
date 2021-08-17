@@ -35,7 +35,7 @@ server.register(view, {
   viewExt: 'hbs',
 });
 
-proxify(server);
+server.register(proxify);
 
 if (isDevelopment) {
   server.register(fastifyStatic, {
