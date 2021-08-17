@@ -1,4 +1,4 @@
-import { FastifyPluginAsync, FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 
 import { get as httpGet } from 'node:http';
 import { get as httpsGet } from 'node:https';
