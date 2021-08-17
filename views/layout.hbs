@@ -1,55 +1,47 @@
 <html lang='ru-RU'>
-    <head>
-        <title>Sharaga{{#if title}} - {{title}}{{/if}}</title>
-        <meta charset='utf-8' />
-        <meta name='theme-color' content='#001c2a' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='stylesheet' href='/static/style/style.css' />
-        {{#if style}}
-            <link rel='stylesheet' href='/static/style/{{style}}.css' />
-        {{/if}}
-    </head>
+  <head>
+    <title>Sharaga{{#if title}} - {{title}}{{/if}}</title>
+    <meta charset='utf-8' />
+    <meta name='theme-color' content='#001c2a' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='stylesheet' href='/static/style/style.css' />
+    {{#if style}}
+      <link rel='stylesheet' href='/static/style/{{style}}.css' />
+    {{/if}}
+  </head>
 
-    <body>
-        <nav>
-            <div class='container'>
-                <img alt='logo' id='logo' />
-                <a href='/' id='title'>Sharaga</a>
-                <input id='menu' type='checkbox' hidden />
-                <label for='menu'>
-                </label>
-                <section id='links'>
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='https://www.tu-bryansk.ru/education/schedule/'
-                    >Расписание</a>
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='https://www.tu-bryansk.ru/sveden/employees/'
-                    >Преподаватели</a>
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='http://arm.iipo.tu-bryansk.ru'
-                    >АРМ</a>
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='http://edu.tu-bryansk.ru'
-                    >ЭИОС</a>
-                </section>
-            </div>
-        </nav>
+  <body>
+    <nav>
+      <div class='container'>
+        <img alt='logo' id='logo' />
+        <a href='/' id='title'>Sharaga</a>
+        <input id='menu' type='checkbox' hidden />
+        <label for='menu'>
+        </label>
+        <section id='links'>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.tu-bryansk.ru/education/schedule/'
+          >Расписание</a>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.tu-bryansk.ru/sveden/employees/'
+          >Преподаватели</a>
+          <a target='_blank' rel='noopener noreferrer' href='http://arm.iipo.tu-bryansk.ru'>АРМ</a>
+          <a target='_blank' rel='noopener noreferrer' href='http://edu.tu-bryansk.ru'>ЭИОС</a>
+        </section>
+      </div>
+    </nav>
 
-        <div class='container'>
-            {{{body}}}
-        </div>
+    <div class='container'>
+      {{{body}}}
+    </div>
 
-        <footer>
-            <p>Sharaga v{{version}}. Made with ❤ by
-                <a href='https://xapdkop.dev'>xapdkop</a></p>
-        </footer>
-    </body>
+    <footer>
+      <p>Sharaga v{{version}}. Made with ❤ by
+        <a href='https://xapdkop.dev'>xapdkop</a></p>
+    </footer>
+  </body>
 </html>

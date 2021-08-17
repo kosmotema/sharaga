@@ -9,12 +9,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "app.ts",
-    "utils/"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["app.ts", "utils/"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

@@ -1,25 +1,25 @@
 main {
-    justify-content: space-around;
+  justify-content: space-around;
+}
 
-    > article {
-        font-size: clamp(1.5rem, 10vh, 5rem);
-        text-align: center;
-    }
+article {
+  font-size: clamp(1.5rem, 10vh, 5rem);
+  text-align: center;
+}
 
-    > details {
-        margin-top: 1.5rem;
-    }
+details {
+  margin-top: 1.5rem;
 
-    > details[open] > summary + pre {
-        animation: appear 0.35s ease-in-out;
-    }
+  &[open] > summary + pre {
+    animation: appear 0.35s ease-in-out;
+  }
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

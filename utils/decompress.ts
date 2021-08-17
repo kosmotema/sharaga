@@ -1,29 +1,29 @@
-import { Transform } from 'stream';
-import { createGunzip, createBrotliDecompress, createInflate } from 'zlib';
+import { Transform } from 'node:stream';
+import { createGunzip, createBrotliDecompress, createInflate } from 'node:zlib';
 
-export default function (header: string) {
-    const encodings = header.split(',').map(s => s.trim());
-    let decompress: Transform | undefined;
+export default function produceDecompressChain(header: string): Transform | undefined {
+  const encodings = header.split(',').map((s) => s.trim());
 
-    for (const encoding of encodings) {
-        let target: Transform;
-        switch (encoding) {
-            case 'gzip':
-            case 'x-gzip':
-                target = createGunzip();
-                break;
-            case 'deflate':
-                target = createInflate();
-                break;
-            case 'br':
-                target = createBrotliDecompress();
-                break;
-            default:
-                return undefined;
-        }
-
-        decompress = decompress ? target.pipe(decompress) : target;
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return encodings.reduce((decompress: Transform | undefined, encoding) => {
+    let target: Transform;
+    switch (encoding) {
+      case 'gzip':
+      case 'x-gzip':
+        target = createGunzip();
+        break;
+      case 'deflate':
+        target = createInflate();
+        break;
+      case 'br':
+        target = createBrotliDecompress();
+        break;
+      default:
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined;
     }
 
-    return decompress;
+    return decompress ? target.pipe(decompress) : target;
+    // eslint-disable-next-line unicorn/no-useless-undefined
+  }, undefined);
 }

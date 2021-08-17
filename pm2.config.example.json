@@ -1,15 +1,15 @@
 {
-    "apps": [
-        {
-            "name": "sharaga",
-            "script": "./app.js",
-            "env": {
-                "NODE_ENV": "production"
-            }
-        },
-        {
-            "script": "./service-worker/",
-            "watch": ["./service-worker"]
-        }
-    ]
+  "apps": [
+    {
+      "name": "sharaga",
+      "script": "./app.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "script": "./service-worker/",
+      "watch": ["./service-worker"]
+    }
+  ]
 }
