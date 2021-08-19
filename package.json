@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/html-minifier": "^4.0.1",
     "@types/http-errors": "^1.8.1",
-    "@types/node": "^16.6.0",
+    "@types/node": "^16.6.2",
     "@types/node-sass": "^4.11.2",
     "@types/stylelint": "^13",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
