@@ -3,12 +3,12 @@
     "incremental": true,
     "target": "es2016",
     "module": "commonjs",
+    "moduleResolution": "node",
     "allowJs": false,
-    "outDir": "./",
+    "outDir": "dist/",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["app.ts", "utils/"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/"]
 }
