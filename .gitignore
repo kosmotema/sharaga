@@ -27,8 +27,8 @@ public/style/
 # ignore error image(s)
 public/error/
 
-# exclude compiled .js files
-*.js
+# exclude compiled js files
+dist/
 
 # ignore pm2 config
 pm2.config.json
@@ -41,3 +41,6 @@ pm2.config.json
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# exclude rollup's cache
+.rollup.cache/

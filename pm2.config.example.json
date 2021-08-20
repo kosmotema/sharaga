@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "sharaga",
-      "script": "./app.js",
+      "script": "./dist/app.js",
       "env": {
         "NODE_ENV": "production"
       }

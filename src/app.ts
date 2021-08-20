@@ -5,8 +5,8 @@ import view from 'point-of-view';
 import path from 'node:path';
 import handlebars from 'handlebars';
 
-import proxify from './utils/proxify';
-import { VERSION, PORT, NPM_VERSION, ENV } from './utils/parameters';
+import proxify from './proxify';
+import { VERSION, PORT, NPM_VERSION, ENV } from './parameters';
 
 const isDevelopment = ENV === 'development';
 
@@ -16,7 +16,7 @@ server.register(view, {
   engine: {
     handlebars,
   },
-  root: path.join(__dirname, 'views'),
+  root: path.join(__dirname, '..', 'views'),
   layout: 'layout',
   options: {
     useHtmlMinifier: minifier,
@@ -39,7 +39,7 @@ server.register(proxify);
 
 if (isDevelopment) {
   server.register(fastifyStatic, {
-    root: path.join(__dirname, 'public'),
+    root: path.join(__dirname, '..', 'public'),
     prefix: '/static/',
   });
 }
