@@ -2867,9 +2867,9 @@ pm2@^5.1.1:
   optionalDependencies:
     pm2-sysmonit "^1.2.8"
 
-point-of-view@^4.15.1:
-  version "4.15.1"
-  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-4.15.1.tgz#2e1987f8f7ff0f9b23ef41d606c03f11fff86a5e"
+point-of-view@^4.15.2:
+  version "4.15.2"
+  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-4.15.2.tgz#edeb78a0dea71bb263238f5de70b8e8823392714"
   dependencies:
     fastify-plugin "^3.0.0"
     hashlru "^2.3.0"
