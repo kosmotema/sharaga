@@ -1301,9 +1301,9 @@ eslint-plugin-promise@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-5.1.0.tgz#fb2188fb734e4557993733b41aa1a688f46c6f24"
 
-eslint-plugin-regexp@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-regexp/-/eslint-plugin-regexp-1.0.0.tgz#ca84acf9764f8768101bdaf2e3a410530b9df187"
+eslint-plugin-regexp@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-regexp/-/eslint-plugin-regexp-1.1.0.tgz#1a417ddbc07fc1dc459942185e1b24913621bd2a"
   dependencies:
     comment-parser "^1.1.2"
     eslint-utils "^3.0.0"
