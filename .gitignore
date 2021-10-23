@@ -41,6 +41,3 @@ pm2.config.json
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-
-# exclude rollup's cache
-.rollup.cache/
