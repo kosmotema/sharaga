@@ -33,11 +33,3 @@ dist/
 # ignore pm2 config
 pm2.config.json
 
-# yarn berry w/o zero-installs
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
