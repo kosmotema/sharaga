@@ -1,6 +1,6 @@
-<header>
+<nav>
   {{#if last}}
-    <a id='back' href='..'></a>
+    <a class='back' href='..'></a>
   {{/if}}
   <div>
     <span>Index of /</span>
@@ -13,9 +13,9 @@
       <span>/</span>
     {{/if}}
   </div>
-</header>
+</nav>
 
-<main class='container'>
+<article>
   {{#if rows}}
     <table>
       <thead>
@@ -50,4 +50,4 @@
   {{else}}
     <h1>Упс... А здесь ничего нет<span class='spacing-wide'>（⊙_◎）</span></h1>
   {{/if}}
-</main>
+</article>
