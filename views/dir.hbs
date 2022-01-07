@@ -1,23 +1,43 @@
-<nav>
-  {{#if last}}
-    <a class='back' href='..'></a>
+<nav
+  class='flex items-center content-center text-center my-5 px-2 md:px-4 py-1 text-xl overflow-x-auto whitespace-nowrap rounded-md text-black bg-neutral-100/80 dark:text-white dark:bg-neutral-800/80'
+>
+  {{#if navigation}}
+    <a
+      class='back p-3 mr-3 my-2 bg-image-back bg-center bg-no-repeat bg-contain transition-transform dark:invert hover:scale-110'
+      href='..'
+      title='назад'
+    ></a>
+    <a
+      class='p-3 mr-1 md:mr-1 my-2 bg-center bg-no-repeat bg-contain bg-image-home transition-transform dark:invert hover:scale-110'
+      href='/'
+      title='на главную'
+    ></a>
+  {{else}}
+    <span
+      class='p-3 mr-1 md:mr-1 my-2 bg-center bg-no-repeat bg-contain bg-image-home dark:invert'
+    ></span>
   {{/if}}
-  <div>
-    <span>Index of /</span>
-    {{#if last}}
-      {{#each navigation}}
-        <a href='{{this.href}}'>{{this.text}}</a>
-        <span>/</span>
-      {{/each}}
-      <span>{{last}}</span>
-      <span>/</span>
+  <span
+    class='p-3 mx-1 bg-center bg-no-repeat bg-contain bg-image-chevron-right dark:invert'
+  ></span>
+  {{#each navigation}}
+    {{#if @last}}
+      <span class='text-neutral-600 dark:text-neutral-300'>{{this.text}}</span>
+    {{else}}
+      <a
+        class='underline decoration-2 hover:text-neutral-600 dark:hover:text-neutral-300'
+        href='{{this.href}}'
+      >{{this.text}}</a>
+      <span
+        class='p-3 mx-1 bg-center bg-no-repeat bg-contain bg-image-chevron-right dark:invert'
+      ></span>
     {{/if}}
-  </div>
+  {{/each}}
 </nav>
 
 <article>
   {{#if rows}}
-    <table>
+    <table class='bg-neutral-200 dark:bg-neutral-700'>
       <thead>
         <tr>
           <th class='icon'></th>

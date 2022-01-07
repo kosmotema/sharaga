@@ -23,6 +23,7 @@ const paths = {
     style: 'style/*.scss',
     code: 'src',
     template: 'views/*.hbs',
+    configs: ['tailwind.config.js', 'postcss.config.js'],
   },
   script: 'src/app.ts',
 };
@@ -69,11 +70,15 @@ gulp.task(
           watch: [paths.watch.code],
           env: { NODE_ENV: 'development', PORT: developmentPort },
           done,
-        });
+        }).on('start', () =>
+          setTimeout(() => bsInstance.init({ proxy: `http://localhost:${developmentPort}` }), 5000)
+        );
       },
       (done) => {
-        bsInstance.init({ proxy: `http://localhost:${developmentPort}` });
-        gulp.watch([paths.watch.style, paths.watch.template], gulp.task(tasks.style));
+        gulp.watch(
+          [...paths.watch.configs, paths.watch.style, paths.watch.template],
+          gulp.task(tasks.style)
+        );
         gulp.watch(paths.watch.template).on('change', bsInstance.reload);
         done();
       }
