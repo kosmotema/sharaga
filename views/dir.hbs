@@ -1,5 +1,5 @@
 <nav
-  class='flex items-center content-center text-center my-5 px-2 md:px-4 py-1 text-xl overflow-x-auto whitespace-nowrap rounded-md text-black bg-neutral-100/80 dark:text-white dark:bg-neutral-800/80'
+  class='flex items-center content-center text-center my-5 px-2 md:px-4 py-1 text-xl overflow-x-auto whitespace-nowrap rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'
 >
   {{#if navigation}}
     <a
@@ -35,33 +35,102 @@
   {{/each}}
 </nav>
 
-<article>
+{{#if rows}}
+  <article
+    class='md:grid md:place-items-center md:[grid-template-columns:auto_1fr_auto_auto] p-2 rounded-lg md:bg-neutral-100/90 md:dark:bg-neutral-800/90 text-black dark:text-white'
+  >
+    <div class='hidden md:contents md:font-bold'>
+      <div class='flex-shrink px-2 md:px-4 pt-2 pb-4'></div>
+      <div class='flex-grow px-2 md:px-4 pt-2 pb-4 underline decoration-1 justify-self-start'>{{#if sort.name}}<a
+            href='{{sort.name}}'
+          >Название</a>{{else}}Название{{/if}}</div>
+      <div class='flex-grow px-2 md:px-4 pt-2 pb-4 underline decoration-1'>{{#if sort.date}}<a
+            href='{{sort.date}}'
+          >Дата изменения</a>{{else}}Дата изменения{{/if}}</div>
+      <div class='flex-grow px-2 md:px-4 pt-2 pb-4 underline decoration-1'>{{#if sort.size}}<a
+            href='{{sort.size}}'
+          >Размер</a>{{else}}Размер{{/if}}</div>
+    </div>
+
+    {{#each rows}}
+      <div
+        class='md:contents p-3 grid items-center [grid-template:1fr_1fr/auto_1fr_auto] rounded-md bg-neutral-100 dark:bg-neutral-800 mt-4'
+      >
+        <div class='md:px-4 md:py-2 row-span-2 md:row-auto'>
+          <img
+            class='w-8 h-8 max-w-none object-contain object-center'
+            src='/static/icons/{{this.type}}.svg'
+            alt='{{this.type}}'
+          />
+        </div>
+        <div class='justify-self-start text-lg sm:text-base row-span-2 md:row-auto flex-grow px-4 md:px-4 md:py-2 [word-break:break-word]'>
+          <a
+            class='text-sky-800 dark:text-sky-400 hover:underline'
+            href='{{this.link}}'
+          >{{this.name}}</a>
+        </div>
+        <div class='md:contents relative px-2 md:px-4 py-2 whitespace-nowrap'><div
+            class='md:hidden inline-block p-2 bg-center bg-contain bg-no-repeat bg-image-date dark:invert peer'
+          >
+          </div>
+          <div
+            class='z-10 right-0 top-full transition-transform md:transition-none p-3 md:p-0 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 md:border-none border-neutral-400/50 dark:border-neutral-500/50'
+          >{{this.date}}</div>
+        </div>
+
+        <div class='md:contents relative px-2 md:px-4 py-2 whitespace-nowrap'><div
+            class='md:hidden inline-block p-2 bg-center bg-contain bg-no-repeat bg-image-size dark:invert peer'
+          >
+          </div>
+          <div
+            class='z-10 right-0 top-full transition-transform md:transition-none p-3 md:p-0 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 md:border-none border-neutral-400/50 dark:border-neutral-500/50'
+          >{{this.size}}</div>
+        </div>
+      </div>
+    {{/each}}
+  </article>
+{{else}}
+  <article class='flex-grow flex items-center justify-stretch'>
+    <h2
+      class='w-full bg-neutral-100/90 dark:bg-neutral-800/90 text-black dark:text-white px-5 py-10 text-3xl sm:px-7 sm:py-15 md:px-10 md:py-20 md:text-4xl xl:text-5xl rounded-xl text-center'
+    >Упс... А здесь ничего нет <span class='tracking-wide'>（⊙_◎）</span></h2>
+  </article>
+{{/if}}
+
+{{!-- <article class='overflow-x-auto'>
   {{#if rows}}
-    <table class='bg-neutral-200 dark:bg-neutral-700'>
+    <table class='bg-neutral-100 dark:bg-neutral-800 w-full text-left'>
       <thead>
         <tr>
-          <th class='icon'></th>
-          <th class='name'>{{#if sort.name}}<a
-                href='{{sort.name}}'
-              >Название</a>{{else}}Название{{/if}}</th>
-          <th class='lastmod'>{{#if sort.date}}<a href='{{sort.date}}'>Дата изменения</a>{{else}}Дата
-              изменения{{/if}}</th>
-          <th class='size'>{{#if sort.size}}<a
-                href='{{sort.size}}'
-              >Размер</a>{{else}}Размер{{/if}}</th>
+          <th class='icon px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600'></th>
+          <th
+            class='name px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 whitespace-nowrap w-full text-neutral-800 dark:text-neutral-200'
+          >{{#if sort.name}}<a href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</th>
+          <th
+            class='lastmod px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 whitespace-nowrap text-neutral-800 dark:text-neutral-200'
+          >{{#if sort.date}}<a href='{{sort.date}}'>Дата изменения</a>{{else}}Дата изменения{{/if}}</th>
+          <th
+            class='size px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 whitespace-nowrap text-neutral-800 dark:text-neutral-200'
+          >{{#if sort.size}}<a href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</th>
         </tr>
       </thead>
       <tbody>
         {{#each rows}}
           <tr>
-            <td class='icon'>
+            <td class='icon px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600'>
               <img src='/static/icons/{{this.type}}.svg' alt='{{this.type}}' />
             </td>
-            <td class='name'>
+            <td
+              class='name px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 break-words text-sky-800 dark:text-sky-400'
+            >
               <a href='{{this.link}}'>{{this.name}}</a>
             </td>
-            <td class='lastmod'>{{this.date}}</td>
-            <td class='size'>{{this.size}}</td>
+            <td
+              class='lastmod px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 whitespace-nowrap text-black dark:text-white'
+            >{{this.date}}</td>
+            <td
+              class='size px-2 md:px-4 py-2 border border-neutral-300 dark:border-neutral-600 whitespace-nowrap text-black dark:text-white'
+            >{{this.size}}</td>
           </tr>
         {{/each}}
 
@@ -70,4 +139,4 @@
   {{else}}
     <h1>Упс... А здесь ничего нет<span class='spacing-wide'>（⊙_◎）</span></h1>
   {{/if}}
-</article>
+</article> --}}

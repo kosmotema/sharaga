@@ -1,13 +1,20 @@
-const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./views/**/*.hbs'],
   theme: {
     screens: {
       xs: '480px',
+      ...defaultTheme.screens,
     },
     container: {
       center: true,
+
+      screens: {
+        xs: '100%',
+        ...defaultTheme.screens,
+      },
+
       padding: {
         DEFAULT: '1rem',
         sm: '2rem',
@@ -30,6 +37,8 @@ module.exports = {
         'image-back': 'svg-load("icons/arrow_back_black_24dp.svg")',
         'image-home': 'svg-load("icons/home_black_24dp.svg")',
         'image-chevron-right': 'svg-load("icons/chevron_right_black_24dp.svg")',
+        'image-date': 'svg-load("icons/date_range_black_24dp.svg")',
+        'image-size': 'svg-load("icons/straighten_black_24dp.svg")',
       },
     },
   },
