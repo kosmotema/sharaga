@@ -4,6 +4,7 @@ import fastifyStatic from 'fastify-static';
 import view from 'point-of-view';
 import path from 'node:path';
 import handlebars from 'handlebars';
+import { createHttpTerminator } from 'http-terminator';
 
 import proxify from './proxify';
 import { VERSION, PORT, NPM_VERSION, ENV, menu } from './parameters';
@@ -11,6 +12,7 @@ import { VERSION, PORT, NPM_VERSION, ENV, menu } from './parameters';
 const isDevelopment = ENV === 'development';
 
 const server = fastify({ logger: isDevelopment });
+const terminator = createHttpTerminator({ server: server.server });
 
 server.register(view, {
   engine: {
@@ -63,3 +65,7 @@ const start = async () => {
   }
 };
 start();
+
+process.on('beforeExit', terminator.terminate);
+process.on('SIGINT', terminator.terminate);
+process.on('SIGTERM', terminator.terminate);
