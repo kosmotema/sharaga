@@ -10,7 +10,7 @@ const bsInstance = browserSync.create();
 
 const paths = {
   src: {
-    style: 'style/main.pcss',
+    style: 'style/main.css',
   },
   dest: {
     style: 'public/style/',
