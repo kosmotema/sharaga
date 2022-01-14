@@ -1,19 +1,16 @@
 import gulp from 'gulp';
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import ts from 'gulp-typescript';
 import nodemon from 'gulp-nodemon';
 import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync';
 
-const sass = gulpSass(dartSass);
 const tsProject = ts.createProject('tsconfig.json');
 const bsInstance = browserSync.create();
 
 const paths = {
   src: {
-    style: 'style/main.scss',
+    style: 'style/main.pcss',
   },
   dest: {
     style: 'public/style/',
@@ -41,7 +38,6 @@ gulp.task(tasks.style, () =>
   gulp
     .src(paths.src.style)
     .pipe(sourcemaps.init())
-    .pipe(sass.sync().on('error', sass.logError))
     .pipe(postcss())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dest.style))
