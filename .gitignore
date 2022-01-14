@@ -34,4 +34,4 @@ dist/
 pm2.config.json
 
 # ignore app config
-config.json
+config.yaml
