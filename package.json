@@ -1,10 +1,23 @@
 {
   "name": "sharaga",
-  "version": "4.0.0-alpha3",
-  "private": true,
+  "version": "4.0.0-beta.0",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Artem Pitikin",
+    "url": "https://xapdkop.dev",
+    "email": "kosmotema@xapdkop.dev"
+  },
+  "description": "Auth-less proxy for BSTU IIPO's file server",
+  "homepage": "https://github.com/kosmotema/sharaga",
+  "repository": "github:kosmotema/sharaga",
+  "bugs": {
+    "url": "https://github.com/kosmotema/sharaga/issues",
+    "email": "sharaga@xapdkop.dev"
+  },
   "engines": {
     "node": ">=16.0.0"
   },
+  "main": "src/app.ts",
   "scripts": {
     "pm2:start": "pm2 start pm2.config.json",
     "pm2:restart": "pm2 restart sharaga --update-env",
@@ -30,28 +43,17 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@types/gulp-sourcemaps": "^0.0.35",
-    "@types/postcss-inline-svg": "^5.0.0",
-    "autoprefixer": "^10.4.2",
     "cheerio": "^1.0.0-rc.10",
     "domhandler": "^4.3.0",
     "fastify": "^3.25.3",
     "fastify-static": "^4.5.0",
-    "gulp": "^4.0.2",
-    "gulp-postcss": "^9.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
     "handlebars": "^4.7.7",
     "html-minifier": "^4.0.0",
     "http-errors": "^2.0.0",
     "js-yaml": "^4.1.0",
     "npm-run-all": "^4.1.5",
     "pm2": "^5.1.2",
-    "point-of-view": "^5.0.0",
-    "postcss": "^8.4.5",
-    "postcss-inline-svg": "^5.0.0",
-    "typescript": "^4.5.4"
+    "point-of-view": "^5.0.0"
   },
   "devDependencies": {
     "@types/browser-sync": "^2.26.3",
@@ -59,13 +61,16 @@
     "@types/gulp": "^4.0.9",
     "@types/gulp-nodemon": "^0.0.34",
     "@types/gulp-postcss": "^8.0.2",
+    "@types/gulp-sourcemaps": "^0.0.35",
     "@types/html-minifier": "^4.0.2",
     "@types/http-errors": "^1.8.2",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^17.0.8",
+    "@types/postcss-inline-svg": "^5.0.0",
     "@types/tailwindcss": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
+    "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.7",
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.15",
@@ -77,11 +82,18 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-regexp": "^1.5.1",
     "eslint-plugin-unicorn": "^40.0.0",
+    "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.15",
+    "postcss": "^8.4.5",
+    "postcss-inline-svg": "^5.0.0",
     "prettier": "2.5.1",
     "svgo": "^2.8.0",
     "tailwindcss": "^3.0.14",
+    "typescript": "^4.5.4",
     "ts-node": "^10.4.0"
   }
 }
