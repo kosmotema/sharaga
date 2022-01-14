@@ -1,8 +1,8 @@
 <article class='flex flex-col flex-grow justify-evenly items-center'>
-  <div class='w-64 h-64 mb-3 bg-center bg-contain bg-no-repeat bg-image-dissatisfied dark:invert'></div>
-  <section class='text-center w-full mt-3 py-9 px-4 rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'>
-    <h2 class='text-8xl'>{{status}}.</h2>
-    <p class='text-5xl'>{{message}}</p>
+  <div class='w-64 h-64 mb-4 bg-center bg-contain bg-no-repeat bg-image-dissatisfied dark:invert'></div>
+  <section class='text-center w-full mt-4 py-9 px-4 rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'>
+    <h2 class='text-6xl'>Ошибка!</h2>
+    <p class='text-3xl'>{{status}} | {{message}}</p>
   </section>
 
   {{#if error.stack}}

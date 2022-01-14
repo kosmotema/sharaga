@@ -40,6 +40,7 @@ module.exports = {
         'image-date': 'svg-load("icons/date_range_black_24dp.svg")',
         'image-size': 'svg-load("icons/straighten_black_24dp.svg")',
         'image-dissatisfied': 'svg-load("icons/sentiment_very_dissatisfied_black_48dp.svg")',
+        'image-neutral': 'svg-load("icons/sentiment_neutral_black_48dp.svg")',
       },
     },
   },

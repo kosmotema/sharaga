@@ -43,13 +43,20 @@
       <div class='flex-shrink px-2 md:px-4 pt-2 pb-3'></div>
       <div
         class='flex-grow px-2 md:px-4 pt-2 pb-3 justify-self-start border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.name}}<a class='hover:underline' href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</div>
+      >{{#if sort.name}}<a
+            class='hover:underline'
+            href='{{sort.name}}'
+          >Название</a>{{else}}Название{{/if}}</div>
       <div
         class='flex-grow px-2 md:px-4 py-2 pb-3 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.date}}<a class='hover:underline' href='{{sort.date}}'>Дата изменения</a>{{else}}Дата изменения{{/if}}</div>
+      >{{#if sort.date}}<a class='hover:underline' href='{{sort.date}}'>Дата изменения</a>{{else}}Дата
+          изменения{{/if}}</div>
       <div
         class='flex-grow px-2 md:px-4 pt-2 pb-3 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.size}}<a class='hover:underline' href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</div>
+      >{{#if sort.size}}<a
+            class='hover:underline'
+            href='{{sort.size}}'
+          >Размер</a>{{else}}Размер{{/if}}</div>
     </div>
 
     {{#each rows}}
@@ -94,9 +101,15 @@
     {{/each}}
   </article>
 {{else}}
-  <article class='flex-grow flex items-center justify-stretch'>
-    <h2
-      class='w-full bg-neutral-100/90 dark:bg-neutral-800/90 text-black dark:text-white px-5 py-10 text-3xl sm:px-7 sm:py-15 md:px-10 md:py-20 md:text-4xl xl:text-5xl rounded-xl text-center'
-    >Упс... А здесь ничего нет <span class='tracking-wide'>（⊙_◎）</span></h2>
+  <article class='flex-grow flex flex-col items-center justify-center'>
+    <div
+      class='w-64 h-64 mb-4 bg-center bg-contain bg-no-repeat bg-image-neutral dark:invert'
+    ></div>
+    <section
+      class='text-center w-full mt-4 py-9 px-4 rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'
+    >
+      <h2 class='text-6xl'>Пусто!</h2>
+      <p class='text-3xl'>Даже слишком пусто</p>
+    </section>
   </article>
 {{/if}}
