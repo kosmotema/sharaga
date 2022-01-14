@@ -42,31 +42,31 @@
     <div class='hidden md:contents md:font-bold'>
       <div class='flex-shrink px-2 md:px-4 pt-2 pb-3'></div>
       <div
-        class='flex-grow px-2 md:px-4 pt-2 pb-3 decoration-1 justify-self-start border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.name}}<a href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</div>
+        class='flex-grow px-2 md:px-4 pt-2 pb-3 justify-self-start border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
+      >{{#if sort.name}}<a class='hover:underline' href='{{sort.name}}'>Название</a>{{else}}Название{{/if}}</div>
       <div
-        class='flex-grow px-2 md:px-4 py-2 pb-3 decoration-1 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.date}}<a href='{{sort.date}}'>Дата изменения</a>{{else}}Дата изменения{{/if}}</div>
+        class='flex-grow px-2 md:px-4 py-2 pb-3 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
+      >{{#if sort.date}}<a class='hover:underline' href='{{sort.date}}'>Дата изменения</a>{{else}}Дата изменения{{/if}}</div>
       <div
-        class='flex-grow px-2 md:px-4 pt-2 pb-3 decoration-1 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
-      >{{#if sort.size}}<a href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</div>
+        class='flex-grow px-2 md:px-4 pt-2 pb-3 border-l-2 w-full h-full border-neutral-400 dark:border-neutral-600'
+      >{{#if sort.size}}<a class='hover:underline' href='{{sort.size}}'>Размер</a>{{else}}Размер{{/if}}</div>
     </div>
 
     {{#each rows}}
       <div
-        class='md:contents p-3 grid items-center [grid-template:1fr_1fr/auto_1fr_auto] rounded-md bg-neutral-100 dark:bg-neutral-800 mt-4'
+        class='md:contents px-3 py-2 grid items-center [grid-template:1fr_1fr/auto_1fr_auto] rounded-md bg-neutral-100 dark:bg-neutral-800 mt-4'
       >
         <div
           class='md:px-4 md:py-2 row-span-2 md:row-auto md:border-t-2 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
         >
           <img
-            class='w-8 h-8 max-w-none object-contain object-center'
+            class='w-10 h-10 max-w-none object-contain object-center'
             src='/static/icons/{{this.type}}.svg'
             alt='{{this.type}}'
           />
         </div>
         <div
-          class='justify-self-start text-lg sm:text-base row-span-2 md:row-auto flex-grow px-4 md:px-4 md:py-2 [word-break:break-word] md:border-t-2 border-l-2 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
+          class='justify-self-start flex items-center text-lg sm:text-base row-span-2 md:row-auto flex-grow px-4 md:px-4 md:py-2 [word-break:break-word] md:border-t-2 md:border-l-2 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
         >
           <a
             class='text-sky-800 dark:text-sky-400 hover:underline'
@@ -74,20 +74,20 @@
           >{{this.name}}</a>
         </div>
         <div class='md:contents relative px-2 md:px-4 py-2 whitespace-nowrap'><div
-            class='md:hidden inline-block p-2 bg-center bg-contain bg-no-repeat bg-image-date dark:invert peer'
+            class='md:hidden inline-block w-5 h-5 bg-center bg-contain bg-no-repeat bg-image-date dark:invert peer'
           >
           </div>
           <div
-            class='z-10 right-0 top-full transition-transform md:transition-none p-3 md:p-2 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 border-neutral-400/50 dark:border-neutral-500/50 md:text-center md:rounded-none md:border-b-0 md:border-r-0 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
+            class='z-10 right-0 top-full flex items-center justify-center transition-transform md:transition-none p-3 md:p-2 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 border-neutral-400/50 dark:border-neutral-500/50 md:rounded-none md:border-b-0 md:border-r-0 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
           >{{this.date}}</div>
         </div>
 
         <div class='md:contents relative px-2 md:px-4 py-2 whitespace-nowrap'><div
-            class='md:hidden inline-block p-2 bg-center bg-contain bg-no-repeat bg-image-size dark:invert peer'
+            class='md:hidden inline-block w-5 h-5 bg-center bg-contain bg-no-repeat bg-image-size dark:invert peer'
           >
           </div>
           <div
-            class='z-10 right-0 top-full transition-transform md:transition-none p-3 md:p-2 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 border-neutral-400/50 dark:border-neutral-500/50 md:text-center md:rounded-none md:border-b-0 md:border-r-0 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
+            class='z-10 right-0 top-full flex items-center justify-center transition-transform md:transition-none p-3 md:p-2 rounded peer-hover:scale-100 scale-0 md:scale-100 absolute md:static md:bg-transparent bg-neutral-100/90 dark:bg-neutral-800/90 border-2 border-neutral-400/50 dark:border-neutral-500/50 md:rounded-none md:border-b-0 md:border-r-0 md:w-full md:h-full md:border-neutral-400 md:dark:border-neutral-600'
           >{{this.size}}</div>
         </div>
       </div>
