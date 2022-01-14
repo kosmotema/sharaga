@@ -39,6 +39,7 @@ module.exports = {
         'image-chevron-right': 'svg-load("icons/chevron_right_black_24dp.svg")',
         'image-date': 'svg-load("icons/date_range_black_24dp.svg")',
         'image-size': 'svg-load("icons/straighten_black_24dp.svg")',
+        'image-dissatisfied': 'svg-load("icons/sentiment_very_dissatisfied_black_48dp.svg")',
       },
     },
   },
