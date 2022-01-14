@@ -1,18 +1,42 @@
-import { config } from 'dotenv';
+// import { config } from 'dotenv';
 
-config();
+import { readFileSync } from 'node:fs';
+import yaml from 'js-yaml';
+import { join } from 'node:path';
 
-function throwIfUndefined<T>(value?: T, help?: string): T {
-  if (typeof value === 'undefined') {
-    throw new TypeError(`undefined not acceptable ${help ? `as ${help}` : 'here'}`);
-  }
-  return value;
+type Config = {
+  env?: string;
+  port?: number;
+  version?: string;
+  proxy: {
+    base: string;
+    auth?: {
+      login: string;
+      password: string;
+    };
+  };
+  menu: { link: string; text: string }[];
+};
+
+const config = yaml.load(readFileSync(join(__dirname, '../config.yaml'), 'utf8')) as Config;
+
+if (config.env) {
+  process.env.NODE_ENV = config.env;
+}
+
+if (config.port) {
+  process.env.PORT = config.port.toString();
+}
+
+if (config.version) {
+  process.env.VERSION = config.version;
 }
 
 export default {
-  protocol: process.env.PROXY_PROTOCOL,
-  url: new URL(throwIfUndefined(process.env.PROXY_BASE, 'PROXY_BASE')),
-  auth: `${process.env.PROXY_LOGIN}:${process.env.PROXY_PASSWORD}`,
+  url: new URL(config.proxy.base),
+  auth: config.proxy.auth ? `${config.proxy.auth.login}:${config.proxy.auth.password}` : undefined,
 };
 
 export const { VERSION, PORT, npm_package_version: NPM_VERSION, NODE_ENV: ENV } = process.env;
+
+export const { menu } = config;

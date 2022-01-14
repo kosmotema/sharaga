@@ -33,3 +33,5 @@ dist/
 # ignore pm2 config
 pm2.config.json
 
+# ignore app config
+config.json

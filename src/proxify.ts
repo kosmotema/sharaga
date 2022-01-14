@@ -10,7 +10,7 @@ import parameters from './parameters';
 import decompress from './decompress';
 import { decode, toBufferEncoding } from './decode';
 
-const get = parameters.protocol === 'https' ? httpsGet : httpGet;
+const get = parameters.url.protocol === 'https' ? httpsGet : httpGet;
 const info = {
   origin: parameters.url.toString(),
   auth: parameters.auth,
@@ -57,7 +57,6 @@ function proxy(request: FastifyRequest, reply: FastifyReply) {
       decode(stream, bufferEncoding)
         .then((data) =>
           reply.view('dir', {
-            style: 'table',
             ...transform(data, request.url),
           })
         )

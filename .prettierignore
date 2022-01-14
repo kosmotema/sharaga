@@ -22,15 +22,4 @@ lerna-debug.log*
 public/style/
 
 # exclude compiled .js files
-*.js
-
-# include pm2 config
-!ecosystem.config.js
-
-# include pm2 example config
-!ecosystem.config.example.js
-
-# yarn berry w/o zero-installs
-.yarn/*
-yarn.lock
-.pnp.*
+dist/

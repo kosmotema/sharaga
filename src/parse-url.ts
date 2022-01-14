@@ -1,5 +1,5 @@
 export type LinkPart = { text: string; href: string };
-export type ParseResult = { parts: LinkPart[]; last?: string; title: string };
+export type ParseResult = { parts: LinkPart[]; title: string };
 
 function trim(url: string): string {
   const index = url.indexOf('?');
@@ -20,6 +20,5 @@ export default function parse(path: string): ParseResult {
       return { text, href: link };
     });
 
-  const last = parts.pop()?.text;
-  return { parts, last, title };
+  return { parts, title };
 }

@@ -62,12 +62,11 @@ export default function transform(data: string, url: string): TransformResult {
     };
   });
 
-  const { parts: navigation, title, last } = navigator(url);
+  const { parts: navigation, title } = navigator(url);
   return {
     rows: items,
     navigation,
     title,
-    last,
     sort,
   };
 }

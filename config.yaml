@@ -1,0 +1,16 @@
+env: 'development'
+port: 8000
+proxy:
+  base: 'http://iipo.tu-bryansk.ru/pub'
+  auth:
+    login: 'a.pitikin'
+    password: 'EVq8KRRutc2w5u'
+menu:
+  - link: 'https://www.tu-bryansk.ru/education/schedule/'
+    text: 'Расписание'
+  - link: 'https://www.tu-bryansk.ru/sveden/employees/'
+    text: 'Преподаватели'
+  - link: 'http://arm.iipo.tu-bryansk.ru'
+    text: 'АРМ'
+  - link: 'http://edu.tu-bryansk.ru'
+    text: 'ЭИОС'

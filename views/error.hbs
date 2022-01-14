@@ -1,13 +1,14 @@
-<main class='container'>
-  <article>
-    <h1>{{status}}.</h1>
-    <h5>{{message}}</h5>
-  </article>
+<article class='flex flex-col flex-grow justify-evenly items-center'>
+  <div class='w-64 h-64 mb-4 bg-center bg-contain bg-no-repeat bg-image-dissatisfied dark:invert'></div>
+  <section class='text-center w-full mt-4 py-9 px-4 rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'>
+    <h2 class='text-6xl'>Ошибка!</h2>
+    <p class='text-3xl'>{{status}} | {{message}}</p>
+  </section>
 
   {{#if error.stack}}
-    <details>
-      <summary>Debug info</summary>
-      <pre>{{error.stack}}</pre>
+    <details class='mt-12 w-full rounded-md text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'>
+      <summary class='px-4 py-3 text-lg text-center w-full cursor-pointer hover:'>Debug info</summary>
+      <p class='mx-4 my-3 font-mono break-words'>{{error.stack}}</p>
     </details>
   {{/if}}
-</main>
+</article>

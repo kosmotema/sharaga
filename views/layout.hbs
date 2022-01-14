@@ -1,47 +1,60 @@
-<html lang='ru-RU'>
+<html lang='ru-RU' class='h-full [color-scheme:light_dark]'>
   <head>
     <title>Sharaga{{#if title}} - {{title}}{{/if}}</title>
     <meta charset='utf-8' />
     <meta name='theme-color' content='#001c2a' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <link rel='stylesheet' href='/static/style/style.css' />
-    {{#if style}}
-      <link rel='stylesheet' href='/static/style/{{style}}.css' />
-    {{/if}}
+    <link rel='stylesheet' href='/static/style/main.css' />
   </head>
 
-  <body>
-    <nav>
-      <div class='container'>
-        <img alt='logo' id='logo' />
-        <a href='/' id='title'>Sharaga</a>
-        <input id='menu' type='checkbox' hidden />
-        <label for='menu'>
+  <body
+    class='min-h-full flex flex-col bg-fixed bg-center bg-cover bg-no-repeat bg-image-main bg-[#001c2a] backdrop-invert dark:backdrop-invert-0'
+  >
+    <header
+      class='fixed z-50 flex text-lg w-full text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90'
+    >
+      <div class='container flex items-center py-2 relative'>
+        <a
+          class='title text-2xl py-1 px-2 relative before:inline-block before:p-3 before:mr-2 before:bg-center before:bg-contain before:bg-no-repeat before:bg-image-education dark:before:invert after:bg-current after:bottom-0 after:block after:h-0.5 after:left-0 after:right-0 after:absolute after:rounded after:scale-x-0 after:transition-transform after:duration-500 after:origin-left hover:after:scale-x-100'
+          href='/'
+        >Sharaga</a>
+        <input class='menu-switcher peer' id='menu' type='checkbox' hidden />
+        <label
+          class='menu-button ml-auto cursor-pointer p-3 transition duration-300 bg-center bg-contain bg-no-repeat bg-image-menu dark:invert peer-checked:rotate-180 peer-checked:bg-image-cross hover:invert-25 dark:hover:invert-75 md:hidden'
+          for='menu'
+        >
         </label>
-        <section id='links'>
-          <a
-            target='_blank'
-            rel='noopener noreferrer'
-            href='https://www.tu-bryansk.ru/education/schedule/'
-          >Расписание</a>
-          <a
-            target='_blank'
-            rel='noopener noreferrer'
-            href='https://www.tu-bryansk.ru/sveden/employees/'
-          >Преподаватели</a>
-          <a target='_blank' rel='noopener noreferrer' href='http://arm.iipo.tu-bryansk.ru'>АРМ</a>
-          <a target='_blank' rel='noopener noreferrer' href='http://edu.tu-bryansk.ru'>ЭИОС</a>
-        </section>
+        <ul
+          class='links flex flex-col absolute left-0 right-0 top-full scale-y-0 py-3 bg-neutral-100/90 dark:bg-neutral-800/90 transition-transform md:transition-none origin-top duration-300 peer-checked:scale-y-100 md:bg-transparent md:py-0 md:scale-y-100 md:static sm:flex-row content-center items-center justify-center select-none mx-auto text-center'
+        >
+          {{#each menu}}
+            <li class='my-3 sm:my-0'><a
+                class='link mt-1 mb-2 mx-4 p-2 relative transition-colors duration-300 hover:text-neutral-600 dark:hover:text-neutral-300 after:rounded after:bg-current after:bottom-0 after:left-0 after:right-0 after:absolute after:h-0.5 after:scale-y-0 after:transition-transform after:duration-300 hover:after:scale-y-100'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='{{this.link}}'
+              >{{this.text}}</a></li>
+          {{/each}}
+        </ul>
       </div>
-    </nav>
+    </header>
 
-    <div class='container'>
+    <main class='container pt-14 flex-grow flex flex-col'>
       {{{body}}}
-    </div>
+    </main>
 
-    <footer>
-      <p>Sharaga v{{version}}. Made with ❤ by
-        <a href='https://xapdkop.dev'>xapdkop</a></p>
+    <footer
+      class='flex-shrink flex flex-col xs:flex-row items-center justify-center text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90 text-center mt-8 py-2'
+    >
+      <p class='p-0.5'>Sharaga v{{version}}<span
+          class='hidden xs:inline'
+        >.</span></p>
+      <p class='p-0.5'>Made with ❤ by
+        <a
+          class='hover:text-neutral-600 dark:hover:text-neutral-300'
+          href='https://xapdkop.dev'
+        >kosmotema</a>
+      </p>
     </footer>
   </body>
 </html>

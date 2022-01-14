@@ -1,0 +1,16 @@
+env: 'development'
+port: 3000
+proxy:
+  base: 'http://example.com/proxy'
+  auth:
+    login: 'login'
+    password: 'password'
+menu:
+  - link: 'https://www.tu-bryansk.ru/education/schedule/'
+    text: 'Расписание'
+  - link: 'https://www.tu-bryansk.ru/sveden/employees/'
+    text: 'Преподаватели'
+  - link: 'http://arm.iipo.tu-bryansk.ru'
+    text: 'АРМ'
+  - link: 'http://edu.tu-bryansk.ru'
+    text: 'ЭИОС'

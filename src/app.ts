@@ -6,7 +6,7 @@ import path from 'node:path';
 import handlebars from 'handlebars';
 
 import proxify from './proxify';
-import { VERSION, PORT, NPM_VERSION, ENV } from './parameters';
+import { VERSION, PORT, NPM_VERSION, ENV, menu } from './parameters';
 
 const isDevelopment = ENV === 'development';
 
@@ -31,6 +31,7 @@ server.register(view, {
   },
   defaultContext: {
     version: NPM_VERSION || VERSION,
+    menu,
   },
   viewExt: 'hbs',
 });
@@ -48,7 +49,6 @@ server.setErrorHandler((error, _request, reply) => {
   reply.code(error.statusCode ?? 500).view('error', {
     status: error.statusCode,
     message: error.message,
-    style: 'error',
     title: error.message.toLowerCase(),
   });
 });
