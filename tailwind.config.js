@@ -30,7 +30,8 @@ module.exports = {
         75: '.75',
       },
       backgroundImage: {
-        'image-main': 'url("/static/images/space.webp")',
+        'image-main-dark': 'url("/static/images/space.webp")',
+        'image-main-light': 'url("/static/images/space-inverted.webp")',
         'image-education': 'svg-load("icons/school_black_24dp.svg")',
         'image-menu': 'svg-load("icons/menu_black_24dp.svg")',
         'image-cross': 'svg-load("icons/close_black_24dp.svg")',

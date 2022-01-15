@@ -15,3 +15,4 @@ Sharaga is the auth-less proxy for BSTU IIPO's file server
 - [date](https://fonts.google.com/icons?selected=Material%20Icons%20Round%3Adate_range%3A)
 - [size](https://fonts.google.com/icons?selected=Material%20Icons%20Round%3Astraighten%3A)
 - [dissatisfied](https://fonts.google.com/icons?selected=Material%20Icons%20Round%3Asentiment_very_dissatisfied%3A)
+- [neutral](https://fonts.google.com/icons?selected=Material%20Icons%20Round%3Asentiment_neutral%3A)

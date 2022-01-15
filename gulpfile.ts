@@ -17,7 +17,6 @@ const paths = {
     code: 'dist',
   },
   watch: {
-    style: 'style/*.scss',
     code: 'src',
     template: 'views/*.hbs',
     configs: ['tailwind.config.js', 'postcss.config.js'],
@@ -71,7 +70,7 @@ gulp.task(
       (done) => {
         bsInstance.init({ proxy: `http://localhost:${developmentPort}` });
         gulp.watch(
-          [...paths.watch.configs, paths.watch.style, paths.watch.template],
+          [...paths.watch.configs, paths.src.style, paths.watch.template],
           gulp.task(tasks.style)
         );
         gulp.watch(paths.watch.template).on('change', bsInstance.reload);
