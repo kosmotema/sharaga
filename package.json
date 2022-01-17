@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "author": {
     "name": "Artem Pitikin",
-    "url": "https://xapdkop.dev",
+    "url": "https://kosmotema.dev",
     "email": "kosmotema@xapdkop.dev"
   },
   "description": "Auth-less proxy for BSTU IIPO's file server",
