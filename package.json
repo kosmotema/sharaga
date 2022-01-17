@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@types/browser-sync": "^2.26.3",
-    "@types/cssnano": "^4.0.1",
+    "@types/cssnano": "^5.0.0",
     "@types/gulp": "^4.0.9",
     "@types/gulp-nodemon": "^0.0.34",
     "@types/gulp-postcss": "^8.0.2",
