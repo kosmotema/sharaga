@@ -29,6 +29,7 @@ server.register(view, {
       collapseBooleanAttributes: true,
       removeAttributeQuotes: true,
       removeEmptyAttributes: true,
+      continueOnParseError: true,
     },
   },
   defaultContext: {

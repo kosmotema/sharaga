@@ -17,7 +17,7 @@
         <a
           class='title text-2xl py-1 px-2 relative before:inline-block before:p-3 before:mr-2 before:bg-center before:bg-contain before:bg-no-repeat before:bg-image-education dark:before:invert after:bg-current after:bottom-0 after:block after:h-0.5 after:left-0 after:right-0 after:absolute after:rounded after:scale-x-0 after:transition-transform after:duration-500 after:origin-left hover:after:scale-x-100'
           href='/'
-        >Sharaga</a>
+        >Sharaga 🇺🇦</a>
         <input class='menu-switcher peer' id='menu' type='checkbox' hidden />
         <label
           class='menu-button ml-auto cursor-pointer p-3 transition duration-300 bg-center bg-contain bg-no-repeat bg-image-menu dark:invert peer-checked:rotate-180 peer-checked:bg-image-cross hover:invert-25 dark:hover:invert-75 md:hidden'
@@ -40,16 +40,21 @@
     </header>
 
     <main class='container pt-16 flex-grow flex flex-col'>
+      <section
+        class='[background:linear-gradient(#0057B8_0_50%,#FFD700_50%_100%)] flex flex-col justify-center items-center my-3 text-center font-bold text-xl md:text-2xl xl:text-3xl rounded-md'
+      >
+        <a class='underline text-white my-1 md:my-2' href='https://war.ukraine.ua'>Поддержите Украину!</a>
+        <p class='text-black my-1 md:my-2'>Нет войне!</p>
+      </section>
+
       {{{body}}}
     </main>
 
     <footer
       class='flex-shrink flex flex-col xs:flex-row items-center justify-center text-black bg-neutral-100/90 dark:text-white dark:bg-neutral-800/90 text-center mt-8 py-2'
     >
-      <p class='p-0.5'>Sharaga v{{version}}<span
-          class='hidden xs:inline'
-        >.</span></p>
-      <p class='p-0.5'>Made with ❤ by
+      <p class='p-0.5'>Sharaga v{{version}}<span class='hidden xs:inline'>.</span></p>
+      <p class='p-0.5'>Made with 💛💙 by
         <a
           class='hover:text-neutral-600 dark:hover:text-neutral-300'
           href='https://kosmotema.dev'
