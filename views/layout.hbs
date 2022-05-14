@@ -15,21 +15,21 @@
     >
       <div class='container flex items-center py-2 relative'>
         <a
-          class='title text-2xl py-1 px-2 relative before:inline-block before:p-3 before:mr-2 before:bg-center before:bg-contain before:bg-no-repeat before:bg-image-education dark:before:invert after:bg-current after:bottom-0 after:block after:h-0.5 after:left-0 after:right-0 after:absolute after:rounded after:scale-x-0 after:transition-transform after:duration-500 after:origin-left hover:after:scale-x-100'
+          class='text-2xl py-1 px-2 relative before:inline-block before:p-3 before:mr-2 before:bg-center before:bg-contain before:bg-no-repeat before:bg-image-education dark:before:invert after:bg-current after:bottom-0 after:block after:h-0.5 after:left-0 after:right-0 after:absolute after:rounded after:scale-x-0 after:transition-transform after:duration-500 after:origin-left hover:after:scale-x-100'
           href='/'
         >Sharaga 🇺🇦</a>
-        <input class='menu-switcher peer' id='menu' type='checkbox' hidden />
+        <input class='peer' id='menu' type='checkbox' hidden />
         <label
-          class='menu-button ml-auto cursor-pointer p-3 transition duration-300 bg-center bg-contain bg-no-repeat bg-image-menu dark:invert peer-checked:rotate-180 peer-checked:bg-image-cross hover:invert-25 dark:hover:invert-75 md:hidden'
+          class='ml-auto cursor-pointer p-3 transition duration-300 bg-center bg-contain bg-no-repeat bg-image-menu dark:invert peer-checked:rotate-180 peer-checked:bg-image-cross hover:invert-25 dark:hover:invert-75 md:hidden'
           for='menu'
         >
         </label>
         <ul
-          class='links flex flex-col absolute left-0 right-0 top-full scale-y-0 py-3 bg-neutral-100/90 dark:bg-neutral-800/90 transition-transform md:transition-none origin-top duration-300 peer-checked:scale-y-100 md:bg-transparent md:py-0 md:scale-y-100 md:static sm:flex-row content-center items-center justify-center select-none mx-auto text-center'
+          class='flex flex-col absolute left-0 right-0 top-full scale-y-0 py-3 bg-neutral-100/90 dark:bg-neutral-800/90 transition-transform md:transition-none origin-top duration-300 peer-checked:scale-y-100 md:bg-transparent md:py-0 md:scale-y-100 md:static sm:flex-row content-center items-center justify-center select-none mx-auto text-center'
         >
           {{#each menu}}
             <li class='my-3 sm:my-0'><a
-                class='link mt-1 mb-2 mx-4 p-2 relative transition-colors duration-300 hover:text-neutral-600 dark:hover:text-neutral-300 after:rounded after:bg-current after:bottom-0 after:left-0 after:right-0 after:absolute after:h-0.5 after:scale-y-0 after:transition-transform after:duration-300 hover:after:scale-y-100'
+                class='mt-1 mb-2 mx-4 p-2 relative transition-colors duration-300 hover:text-neutral-600 dark:hover:text-neutral-300 after:rounded after:bg-current after:bottom-0 after:left-0 after:right-0 after:absolute after:h-0.5 after:scale-y-0 after:transition-transform after:duration-300 hover:after:scale-y-100'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='{{this.link}}'
